@@ -1,5 +1,6 @@
 package mentutor.registers;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -65,4 +66,5 @@ public class registerNewUsersStepDefs {
                 //assert response time
                 .time(Matchers.lessThan(3000L));
     }
+
 }
