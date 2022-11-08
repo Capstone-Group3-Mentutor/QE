@@ -2,7 +2,6 @@ package mentutor.login;
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
-import org.apache.http.auth.AUTH;
 
 import java.io.File;
 
@@ -15,7 +14,6 @@ public class loginAPI {
 
     public static String LOGIN_USER = URL+"/login";
     public static String REGISTER_NEW_USER = URL+ "/admin/users";
-    public static String UPDATE_USER_PROFILE = URL+ "/users";
 
 
     @Step ("Login user with valid data")
