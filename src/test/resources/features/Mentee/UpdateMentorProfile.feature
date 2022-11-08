@@ -3,6 +3,7 @@ Feature: Update Mentor Profile
     Given User login with all valid data
     When Send request post login user
     Then Should return 200 OK
+
     And Set token to Mentor Token
 
   Scenario: Update profile Mentor with all valid data
