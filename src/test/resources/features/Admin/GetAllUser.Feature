@@ -5,14 +5,14 @@ Feature: Get All User
     Then Should return 200 OK
     And Set token to Admin Token
 
-  @Tamara
+  @Tamara #GetAllUser_001
   Scenario: Get All User with Authorization
-    Given Get all user using valid path "user" with authorization
+    Given Get all user using valid path "users" with authorization
     When Send request get all user
-    Then Should return 200 OK
+    Then Should return status code 200 OK
 
-  @Tamara
+  @Tamara #GetALlUser_002
   Scenario: Get All User without Authorization
-    Given Get all user using valid path "user" without authorization
+    Given Get all user using valid path "users" without authorization
     When Send request get all user
-    Then Should return 400 Bad request
+    Then Should return status code 400 Bad request
