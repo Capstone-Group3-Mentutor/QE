@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.rest.SerenityRest;
 
 public class DeleteClassStefDef {
 
@@ -19,6 +20,7 @@ public class DeleteClassStefDef {
 
     @Then("Should return status code {int} OK")
     public void shouldReturnStatusCodeOK(int OK) {
+        SerenityRest.then().statusCode(OK);
     }
 
     @And("Response body should contain message {string}")
@@ -32,6 +34,7 @@ public class DeleteClassStefDef {
 
     @Then("Should return status code {int} Bad request")
     public void shouldReturnStatusCodeBadRequest(int bad) {
+        SerenityRest.then().statusCode(bad);
     }
 
     //DeleteClass_003

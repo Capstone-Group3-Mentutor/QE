@@ -1,18 +1,17 @@
 Feature: Get All Class
   Background: Login Admin
-    Given User login with all valid data
+    Given User login with valid data
     When Send request post login user
-    Then Should return 200 OK
     And Set token to Admin Token
 
   @Tamara #GetAllClass_001
   Scenario: Get All Class with Authorization
-    Given Get all class using valid path "classes" with authorization
+    Given Get all class using valid path with authorization
     When Send request get all class
     Then Should return status code 200 OK
 
   @Tamara #GetAllClass_002
   Scenario: Get All Class without Authorization
-    Given Get all class using valid path "classes" without authorization
+    Given Get all class using valid path without authorization
     When Send request get all class
     Then Should return status code 400 Bad request
