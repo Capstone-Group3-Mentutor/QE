@@ -10,6 +10,8 @@ import org.hamcrest.Matchers;
 import java.io.File;
 import java.util.HashMap;
 
+import static mentutor.login.loginAPI.email;
+import static mentutor.login.loginAPI.password;
 import static mentutor.registers.registerVariable.*;
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.*;
@@ -27,8 +29,22 @@ public class loginStepDef {
     }
     @Given("Mentor login with all valid data")
     public void mentorLoginWithAllValidData() {
+//        if(email==null){
+//            email="testerquality@gmail.com";
+//            password="Admin123$";
+//            HashMap<String, Object> json = new HashMap<String, Object>();
+//            String s1 = email;
+//            String s2 = password;
+//            json.put("email", s1);
+//            json.put("password", s2);
+//            SerenityRest.given()
+//                    .contentType("multipart/form-data")
+//                    .multiPart("email", email)
+//                    .multiPart("email", password);
+//        }
         File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentor.json");
         LoginAPI.setLoginUser(json);
+
     }
 
     @When("Send request post login user")

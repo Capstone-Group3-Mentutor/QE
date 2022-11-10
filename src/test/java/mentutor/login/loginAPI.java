@@ -15,6 +15,10 @@ public class loginAPI {
     public static String LOGIN_USER = URL+"/login";
     public static String REGISTER_NEW_USER = URL+ "/admin/users";
     public static String UPDATE_MENTOR_PROFILE = URL+ "/users";
+    public static String GET_DETAIL_TASK = URL +"/mentors/tasks/{id}";
+    public static String email;
+    public static String password;
+
 
 
 
@@ -36,7 +40,7 @@ public class loginAPI {
                 .multiPart("images","src/test/resources/features/login.Feature1bff2772.PNG");
     }
     @Step ("Update User Mentor with valid data")
-    public void setUpdateMentorProfile(File json, String name, String email, String password, String images){
+    public void setUpdateMentorProfile( String name, String email, String password, String images){
         SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
                 .contentType("multipart/form-data")
                 .multiPart("name", name)
@@ -53,6 +57,30 @@ public class loginAPI {
                 .multiPart("due_date", time)
                 .multiPart("file", "src/test/resources/features/testFileValid.PNG")
                 .multiPart("images","src/test/resources/features/testImagesValid.PNG");
+    }
+    @Step ("Get All Task By Id Mentor")
+    public void setGetAllTaskbyIDMentor(){
+        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all();
+    }
+    @Step ("Get Detail Task with Task id")
+    public void setGetDetailTask(int task){
+        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all();
+        SerenityRest.given().pathParam("id",task);
+    }
+    @Step ("Update Task")
+    public void setUpdateTask(int id, String title, String description, String time){
+        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
+                .contentType("multipart/form-data")
+                .pathParam("id",id)
+                .multiPart("title", title)
+                .multiPart("description", description)
+                .multiPart("due_date", time)
+                .multiPart("file", "src/test/resources/features/testFileValid.PNG")
+                .multiPart("images","src/test/resources/features/testImagesValid.PNG");
+    }
+    @Step ("Admin Token")
+    public void setAdminToken(){
+        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all();
     }
 
 }
