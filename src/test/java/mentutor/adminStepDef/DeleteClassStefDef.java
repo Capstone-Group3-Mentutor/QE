@@ -1,4 +1,4 @@
-package mentutor.registers;
+package mentutor.adminStepDef;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -7,6 +7,8 @@ import io.cucumber.java.en.When;
 
 public class DeleteClassStefDef {
 
+
+    //DeleteClass_001
     @Given("Delete class with valid id {int}")
     public void deleteClassWithValidIdId(int id) {
     }
@@ -23,27 +25,31 @@ public class DeleteClassStefDef {
     public void responseBodyShouldContainMessage(String message) {
     }
 
-    @Given("Delete class valid id <id> without authorized")
-    public void deleteClassValidIdIdWithoutAuthorized() {
+    //DeleteClass_002
+    @Given("Delete class valid id {int} without authorized")
+    public void deleteClassValidIdIdWithoutAuthorized(int id) {
     }
 
     @Then("Should return status code {int} Bad request")
     public void shouldReturnStatusCodeBadRequest(int bad) {
     }
 
-    @Given("Delete class unregistered Id <id>")
-    public void deleteClassUnregisteredIdId() {
+    //DeleteClass_003
+    @Given("Delete class unregistered Id {int}")
+    public void deleteClassUnregisteredIdId(int id) {
     }
 
     @Then("Should return status code {int} Not Found")
-    public void shouldReturnStatusCodeNotFound(int arg0) {
+    public void shouldReturnStatusCodeNotFound(int notFound) {
     }
 
+    //DeleteClass_004
     @Given("Delete class unregistered Id {string}")
-    public void deleteClassUnregisteredId(String arg0) {
+    public void deleteClassUnregisteredId(String id) {
     }
 
-    @Given("Delete class with Id <id> has been deleted")
-    public void deleteClassWithIdIdHasBeenDeleted() {
+    //DeleteClass_005
+    @Given("Delete class with Id {int} has been deleted")
+    public void deleteClassWithIdIdHasBeenDeleted(int id) {
     }
 }

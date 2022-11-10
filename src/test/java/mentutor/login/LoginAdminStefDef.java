@@ -1,4 +1,4 @@
-package mentutor.registers;
+package mentutor.login;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

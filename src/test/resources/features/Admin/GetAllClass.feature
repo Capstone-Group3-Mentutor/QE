@@ -5,14 +5,14 @@ Feature: Get All Class
     Then Should return 200 OK
     And Set token to Admin Token
 
-  @Tamara
+  @Tamara #GetAllClass_001
   Scenario: Get All Class with Authorization
     Given Get all class using valid path "classes" with authorization
     When Send request get all class
-    Then Should return 200 OK
+    Then Should return status code 200 OK
 
-  @Tamara
+  @Tamara #GetAllClass_002
   Scenario: Get All Class without Authorization
     Given Get all class using valid path "classes" without authorization
     When Send request get all class
-    Then Should return 400 Bad request
+    Then Should return status code 400 Bad request
