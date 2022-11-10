@@ -1,8 +1,7 @@
 Feature: Delete a class
   Background: Login Admin
-    Given User login with all valid data
+    Given User login with valid data
     When Send request post login user
-    Then Should return 200 OK
     And Set token to Admin Token
 
   @Tamara #DeleteClass_001
