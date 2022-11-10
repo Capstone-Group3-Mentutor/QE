@@ -2,6 +2,7 @@ package mentutor.general;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.serenitybdd.rest.SerenityRest;
 import org.jruby.util.ResourceException;
 
@@ -26,6 +27,7 @@ public class ResponseCode {
     public void shouldReturnBadRequest(int Bad) {
         SerenityRest.then().statusCode(Bad);
     }
+
 
 
 }

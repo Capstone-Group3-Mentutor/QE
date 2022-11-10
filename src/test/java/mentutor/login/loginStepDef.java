@@ -25,6 +25,11 @@ public class loginStepDef {
         File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithValidData.json");
         LoginAPI.setLoginUser(json);
     }
+    @Given("Mentor login with all valid data")
+    public void mentorLoginWithAllValidData() {
+        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentor.json");
+        LoginAPI.setLoginUser(json);
+    }
 
     @When("Send request post login user")
     public void sendRequestPostLoginUser() {

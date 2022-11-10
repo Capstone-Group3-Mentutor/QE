@@ -5,6 +5,7 @@ Feature: Login All users
     Then Should return 200 OK
     And Response body massage is "login successful"
     And Response body should contain id user 1, name "Admin", email "admin.mentutor@gmail.com", class "" and role "admin"
+
   Scenario:Login user with unregistered email
     Given User set login data wit unregistered email
     When Send request post login user
