@@ -1,5 +1,6 @@
 package mentutor.adminStepDef;
 
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,6 +13,7 @@ public class DeleteClassStefDef {
 
     @Steps
     AdminAPI adminAPI;
+
 
     //DeleteClass_001
     @Given("Delete class with valid id {int}")
@@ -29,7 +31,7 @@ public class DeleteClassStefDef {
         SerenityRest.then().statusCode(OK);
     }
 
-     //DeleteClass_002
+    //DeleteClass_002
     @Given("Delete class valid id {int} without authorized")
     public void deleteClassValidIdIdWithoutAuthorized(int id) {
         adminAPI.deleteClassWithoutAuth(id);
@@ -55,6 +57,7 @@ public class DeleteClassStefDef {
     @Given("Delete class invalid Id {string}")
     public void deleteClassInvalidId(String id) {
         adminAPI.deleteClassInvalidID("id");
+
     }
 
     //DeleteClass_005
@@ -62,6 +65,5 @@ public class DeleteClassStefDef {
     public void deleteClassWithIdIdHasBeenDeleted(int id) {
         adminAPI.deleteClassHasBeenDeletedID(id);
     }
-
 
 }

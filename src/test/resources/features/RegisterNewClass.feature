@@ -23,7 +23,7 @@ Feature: Register New Class
     Given Post create new class with empty class name
     When Send request post create new class
     Then Should return status code 400 Bad request
-##    And Post create new user json schema validator
+#    And Post create new user json schema validator
 
   @Tamara #RegisterNewClass_004
   Scenario: Post create new class with numeric class name in Body JSON
@@ -38,6 +38,7 @@ Feature: Register New Class
     When Send request post create new class
     Then Should return status code 400 Bad request
 #    And Post create new user json schema validator
+
 
 
 

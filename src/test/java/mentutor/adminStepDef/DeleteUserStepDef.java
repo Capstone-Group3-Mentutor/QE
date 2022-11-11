@@ -10,7 +10,6 @@ public class DeleteUserStepDef {
     @Steps
     AdminAPI adminAPI;
 
-
     //DeleteUser_001
     @Given("Delete user with valid id {int}")
     public void deleteUserWithValidIdId(int id) {
@@ -44,5 +43,6 @@ public class DeleteUserStepDef {
     @Given("Delete user with Id {int} has been deleted")
     public void deleteUserWithIdIdHasBeenDeleted(int id) {
         adminAPI.deleteUserHasBeenDeletedID(id);
+
     }
 }

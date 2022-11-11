@@ -52,6 +52,7 @@ public class RegisNewClassStepDef {
     @Given("Admin create new class with class_name {int}")
     public void postCreateNewClassWithNumericClassName(int className) {
         adminAPI.regisNewClassNumericName(className);
+
     }
 
     //RegisNewClass_005
