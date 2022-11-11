@@ -5,7 +5,7 @@ import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
 import io.cucumber.java.Scenario;
-import mentutor.login.loginAPI;
+import mentutor.login.base.SetBaseLogin;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.OutputType;
@@ -14,7 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 import java.io.File;
 
 public class BackgroundTesting {
-    loginAPI LoginAPI;
+    SetBaseLogin LoginAPI;
 
     @Before(value = "@mentor")
     public void beforeScenario() {

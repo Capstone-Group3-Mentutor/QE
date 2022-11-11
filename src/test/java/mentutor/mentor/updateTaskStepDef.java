@@ -2,14 +2,14 @@ package mentutor.mentor;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import mentutor.login.loginAPI;
+import mentutor.login.base.SetBaseLogin;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
 import java.io.File;
 public class updateTaskStepDef {
     @Steps
-    loginAPI LoginAPI;
+    SetBaseLogin LoginAPI;
     testMentorAPI MentorAPI;
     @Given("Mentor set update task data with id {} Title {string}, Description {string}, Time {string}")
     public void mentorSetUpdateTaskDataWithTitleDescriptionTime( int id, String title, String description, String time) {

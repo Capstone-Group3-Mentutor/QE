@@ -4,14 +4,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
+import mentutor.login.base.SetBaseLogin;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import org.hamcrest.Matchers;
 import java.io.File;
 import java.util.HashMap;
-
-import static mentutor.login.loginAPI.email;
-import static mentutor.login.loginAPI.password;
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.*;
 
@@ -20,7 +18,7 @@ public class loginStepDef {
 
 
     @Steps
-    loginAPI LoginAPI;
+    SetBaseLogin LoginAPI;
     @Given("User login with all valid data")
     public void userLoginWithAllValidData() {
         File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithValidData.json");

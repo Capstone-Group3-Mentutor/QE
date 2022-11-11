@@ -2,13 +2,13 @@ package mentutor.mentor;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import mentutor.login.loginAPI;
+import mentutor.login.base.SetBaseLogin;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
 public class getAllTaskbyIdMentor {
     @Steps
-    loginAPI LoginAPI;
+    SetBaseLogin LoginAPI;
     @Given("Mentor set token to Mentor Token")
     public void mentorSetTokenToMentorToken() {
         LoginAPI.setGetAllTaskbyIDMentor();
