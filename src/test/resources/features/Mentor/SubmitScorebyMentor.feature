@@ -1,7 +1,7 @@
 Feature: Update Mentor Profile
   Background: Login Mentor
     Given Mentor login with all valid data
-    When Send request post login user
+    When User send request post login user
     And Set token to Mentor Token
 
   Scenario: Add task score with valid task id and valid score
