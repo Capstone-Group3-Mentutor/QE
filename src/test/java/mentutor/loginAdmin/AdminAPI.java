@@ -118,6 +118,32 @@ public class AdminAPI {
                 .pathParam("id",id);
     }
 
+    @Step("Get single user without auth")
+    public void getSingleUserWithoutAuth(int id){
+        SerenityRest.given().pathParam("id",id);
+    }
+
+    @Step("Get single user unregister id")
+    public void getSingleUserUnregisterID(int id){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id);
+    }
+
+    @Step("Get single user invalid id")
+    public void getSingleUserInvalidID(String id){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id);
+    }
+
+    @Step("Get single user with Id has been deleted ")
+    public void getSingleUserWithIDHasBeenDeleted(int id){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id);
+    }
+
 
 
 

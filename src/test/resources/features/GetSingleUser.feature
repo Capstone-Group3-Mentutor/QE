@@ -14,44 +14,44 @@ Feature: Get Single User
     |id|
     |9 |
 
-#  @Tamara #GetSingleUser_002
-#  Scenario Outline: Get Single User Using Valid Id User without Authorization
-#    Given Get single user using valid id <id> without authorization
-#    When Send request get single user
-#    Then Should return status code 400 Bad request
-#    And Get single user json schema validator
-#    Examples:
-#      |id|
-#      |9 |
+  @Tamara #GetSingleUser_002
+  Scenario Outline: Get Single User Using Valid Id User without Authorization
+    Given Get single user using valid id <id> without authorization
+    When Send request get single user
+    Then Should return status code 400 Bad request
+    And Get single user without authorization json schema validator
+    Examples:
+      |id|
+      |9 |
 
-#  @Tamara #GetSingleUser_003
-#  Scenario Outline: Get Single User with Unregistered Id User
-#    Given Get single user with unregistered id <id>
-#    When Send request get single user
-#    Then Should return status code 405 Method Not Allowed
-#    And Get single user json schema validator
-#    Examples:
-#      |id|
-#      |9 |
+  @Tamara #GetSingleUser_003
+  Scenario Outline: Get Single User with Unregistered Id User
+    Given Get single user with unregistered id <id>
+    When Send request get single user
+    Then Should return status code 400 Bad request
+    And Get single user with unregister id json schema validator
+    Examples:
+      |id|
+      |500 |
 
-#  @Tamara #GetSingleUser_004
-#  Scenario Outline: Get Single User with Invalid Id User
-#    Given Get single user with invalid id "<id>"
-#    When Send request get single user
-#    Then Should return status code 400 Bad request
-#    And Get single user json schema validator
-#    Examples:
-#      |id|
-#      |@!$@ |
-#      |one  |
+  @Tamara #GetSingleUser_004
+  Scenario Outline: Get Single User with Invalid Id User
+    Given Get single user with invalid id "<id>"
+    When Send request get single user
+    Then Should return status code 400 Bad request
+    And Get single user with invalid id json schema validator
+    Examples:
+      |id|
+      |@!$@ |
+      |one  |
 
-#  @Tamara #GetSingleUser_005
-#  Scenario Outline: Get Single User with Id User has been Deleted
-#    Given Get single user with id <id> has been deleted
-#    When Send request get single user
-#    Then Should return status code 400 Bad request
-#    And Get single user json schema validator
-#    Examples:
-#      |id|
-#      |5 |
+  @Tamara #GetSingleUser_005
+  Scenario Outline: Get Single User with Id User has been Deleted
+    Given Get single user with id <id> has been deleted
+    When Send request get single user
+    Then Should return status code 400 Bad request
+    And Get single user with Id User has been Deleted json schema validator
+    Examples:
+      |id|
+      |5 |
 
