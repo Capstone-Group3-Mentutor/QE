@@ -3,7 +3,7 @@ package mentutor.mentor;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import mentutor.login.loginAPI;
+import mentutor.login.base.SetBaseLogin;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
@@ -11,7 +11,7 @@ import java.io.File;
 
 public class updateMentorProfileStepDef {
     @Steps
-    loginAPI LoginAPI;
+    SetBaseLogin LoginAPI;
     testMentorAPI MentorAPI;
 //    @Given("Mentor set update profile data with all valid data")
 //    public void mentorSetUpdateProfileData() {

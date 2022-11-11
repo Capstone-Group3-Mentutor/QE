@@ -1,16 +1,17 @@
-package mentutor.login;
+package mentutor.login.base;
+
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
 import java.io.File;
 
-public class loginAPI {
+public class SetBaseLogin {
     public static String URL = "https://ecommerce-alta.online";
     public static final String DIR = System.getProperty("user.dir");
     public static final String JSON_FILE = DIR+"/src/test/resources/JSON/BodyRequest";
     public static String BARIER_TOKEN;
-//    public static final String JSON_VALIDATOR = DIR+"/src/test/resources/JSON/SchemaValidator/Post";
+    public static final String JSON_VALIDATOR = DIR+"/src/test/resources/JSON/SchemaValidator/Post";
 
     public static String LOGIN_USER = URL+"/login";
     public static String REGISTER_NEW_USER = URL+ "/admin/users";
@@ -22,7 +23,7 @@ public class loginAPI {
 
 
 
-    @Step ("Login user with valid data")
+    @Step("Login user with valid data")
     public void setLoginUser(File json){
         SerenityRest.given().contentType(ContentType.JSON).body(json);
     }
@@ -50,7 +51,7 @@ public class loginAPI {
                 .multiPart("images","src/test/resources/features/" + images).log().all();
     }
     @Step ("Create new Task")
-    public void setCreateNewTask(File json,String title, String description, String time){
+    public void setCreateNewTask(String title, String description, String time){
         SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
                 .contentType("multipart/form-data")
                 .multiPart("title", title)
@@ -58,6 +59,7 @@ public class loginAPI {
                 .multiPart("due_date", time)
                 .multiPart("file", "src/test/resources/features/testFileValid.PNG")
                 .multiPart("images","src/test/resources/features/testImagesValid.PNG");
+
     }
     @Step ("Get All Task By Id Mentor")
     public void setGetAllTaskbyIDMentor(){
@@ -114,6 +116,30 @@ public class loginAPI {
     }
     @Step ("Add Mentor Comment")
     public void setAddMentorComment(int forum, String comment){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+                .pathParam("forum",forum)
+                .multiPart("caption", comment)
+                .log().all();
+    }
+    @Step ("Add Mentor Comment")
+    public void setAddMentorCommentInvalid(String forum, String comment){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+                .pathParam("forum",forum)
+                .multiPart("caption", comment)
+                .log().all();
+    }
+    @Step ("Add Mentor Comment")
+    public void setAddMentorCommentwithoutID( String comment){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+//                .pathParam("forum",forum)
+                .multiPart("caption", comment)
+                .log().all();
+    }
+    @Step ("Add Mentor Comment")
+    public void setAddMentorCommentfloat(int forum, float comment){
         SerenityRest.given()
                 .headers("Authorization","Bearer "+ BARIER_TOKEN)
                 .pathParam("forum",forum)
