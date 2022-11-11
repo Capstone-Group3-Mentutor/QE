@@ -4,20 +4,33 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import mentutor.loginAdmin.AdminAPI;
+import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Steps;
+import io.restassured.module.jsv.JsonSchemaValidator;
+
+import java.io.File;
 
 public class GetSingleUserStepdef {
+
+    @Steps
+    AdminAPI adminAPI;
 
     //GetSingleUser_001
     @Given("Get single user using valid id {int} with authorization")
     public void getSingleUserUsingValidIdIdWithAuthorization(int id) {
+        adminAPI.getSingleUserValidID(id);
     }
 
     @When("Send request get single user")
     public void sendRequestGetSingleUser() {
+        SerenityRest.when().get(AdminAPI.GET_SINGLE_USER);
     }
 
-    @And("Get single user json schema validator")
-    public void getSingleUserJsonSchemaValidator() {
+    @And("Get single user with valid id json schema validator")
+    public void getSingleUserWithValidIdJsonSchemaValidator() {
+        File json = new File(AdminAPI.JSON_FILE+"/GetSingleUserValidIDJsonValidator.json");
+        SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(json));
     }
 
     //GetSingleUser_002
