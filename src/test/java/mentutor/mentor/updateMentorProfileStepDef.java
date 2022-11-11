@@ -27,7 +27,6 @@ public class updateMentorProfileStepDef {
         String email = "";
         String Password = "";
         String images = "";
-//        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
         LoginAPI.setUpdateMentorProfile( name, email, Password, images);
     }
 
