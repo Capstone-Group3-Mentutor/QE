@@ -19,7 +19,8 @@ public class getTokenStepDef {
     }
     @And("Set token to Mentor Token")
     public void setTokenToMentorToken() {
-         LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
+        SerenityRest.when().post(LoginAPI.LOGIN_USER);
+        LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
 //        LoginAPI.setGetAllTaskbyIDMentor();
 //        MentorAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
     }

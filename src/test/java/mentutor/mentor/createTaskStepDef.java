@@ -12,9 +12,8 @@ public class createTaskStepDef {
     loginAPI LoginAPI;
     testMentorAPI MentorAPI;
     @Given("Mentor set create task data with Title {string}, Description {string}, Time {string}")
-    public void mentorSetCreateTaskDataWithTitleDescriptionTime(String title, String description, String time) {
-        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setCreateNewTask(json, title, description, time);
+    public void mentorSetCreateTaskDataWithTitleDescriptionTime(String title_valid, String description, String time) {
+        LoginAPI.setCreateNewTask(title_valid, description, time);
     }
 
     @When("User send request post create task")
