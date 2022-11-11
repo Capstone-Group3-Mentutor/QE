@@ -15,6 +15,7 @@ public class AdminAPI {
     public static final String DELETE_CLASS = "https://ecommerce-alta.online/admin/classes/{id}";
     public static final String DELETE_USER = "https://ecommerce-alta.online/admin/users/{id}";
     public static final String GET_SINGLE_USER = "https://ecommerce-alta.online/admin/users/{id}";
+    public static final String REGIS_NEW_CLASS = "https://ecommerce-alta.online/admin/classes";
     public static final String DIR = System.getProperty("user.dir");
     public static final String JSON_FILE = DIR+"/src/test/resources/JSON";
 
@@ -142,6 +143,30 @@ public class AdminAPI {
         SerenityRest.given()
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id);
+    }
+
+    @Step("Register new class valid name")
+    public void regisNewClassValidName(String className){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .multiPart("class_name",className);
+    }
+
+    @Step("Register new class without authorization")
+    public void regisNewClassWithoutAuth(String className){
+        SerenityRest.given().multiPart("class_name",className);
+    }
+
+    @Step ("Register new class with empty class name")
+    public void regisNewClassEmptyClassName (File json){
+        SerenityRest.given().contentType(ContentType.JSON).body(json);
+    }
+
+    @Step("Register new class with numeric name")
+    public void regisNewClassNumericName(int className){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .multiPart("class_name",className);
     }
 
 
