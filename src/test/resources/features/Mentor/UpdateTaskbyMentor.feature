@@ -5,14 +5,13 @@ Feature: Update Mentor Profile
     And Set token to Mentor Token
 
   Scenario: Update task with valid task id and valid data
-    Given mentor set parameter task id to 70
-    And Mentor set update task data with id 70 Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
+    Given Mentor set update task data with id 88 Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
     When User send request put update task
     Then Should return 201 Created
-#  Scenario: Update task with invalid task id and valid data
-#    Given Mentor set update task data with id 1 Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-#    When User send request put update task
-#    Then Should return 201 Created
+  Scenario: Update task with invalid task id and valid data
+    Given Mentor set update task data id "test" with  Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
+    When User send request put update task
+    Then Should return 400 Bad Request
 #  Scenario: Update task with unregistered task id and valid data
 #    Given Mentor set update task data with id 1 Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
 #    When User send request put update task

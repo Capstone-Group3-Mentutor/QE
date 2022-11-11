@@ -1,5 +1,6 @@
 package mentutor.mentor;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import mentutor.login.loginAPI;
@@ -68,5 +69,16 @@ public class updateMentorProfileStepDef {
         String password = "";
 //        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
         LoginAPI.setUpdateMentorProfile( name, email, password, images);
+    }
+
+    @And("Reset mentor profile")
+    public void resetMentorProfile() {
+        String name = "Berhasil lah";
+        String images = "";
+        String email = "testerqulity@gmail.com";
+        String password = "Admin123$";
+        LoginAPI.setUpdateMentorProfile(name, email, password, images);
+        SerenityRest.when().put(mentorAPI.UPDATE_MENTOR_PROFILE);
+
     }
 }

@@ -24,12 +24,23 @@ public class getAllTaskbyIdMentor {
         LoginAPI.setGetAllTaskbyIDMentor();
     }
     @Given("Mentor set task id to {int}")
-    public void mentorSetTaskIdTo(int task) {
-        LoginAPI.setGetDetailTask(task);
+    public void mentorSetTaskIdTo(int id) {
+        LoginAPI.setGetDetailTask(id);
     }
     @When("User send request get detail task")
     public void userSendRequestGetDetailTaskWithTaskId() {
-        SerenityRest.when().get(loginAPI.GET_DETAIL_TASK);
+        SerenityRest.when().get(mentorAPI.GET_DETAIL_TASK);
+    }
+
+
+    @Given("Mentor set invalid task id to {string}")
+    public void mentorSetInvalidTaskIdTo(String id) {
+        LoginAPI.setGetDetailTaskInvalid(id);
+    }
+
+    @When("User send request delete task")
+    public void userSendRequestDeleteTask() {
+        SerenityRest.when().delete(mentorAPI.GET_DETAIL_TASK);
     }
 
 
