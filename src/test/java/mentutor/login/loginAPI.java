@@ -1,58 +1,54 @@
 package mentutor.login;
+
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
 import java.io.File;
 
-public class loginAPI {
+public class LoginAPi {
+
     public static String URL = "https://ecommerce-alta.online";
+    public static final String LOGIN_ADMIN = "https://ecommerce-alta.online/login";
+    public static final String GET_ALL_CLASS = URL+"/admin/classes";
+    public static final String GET_ALL_USERS = "https://ecommerce-alta.online/admin/users";
     public static final String DIR = System.getProperty("user.dir");
-    public static final String JSON_FILE = DIR+"/src/test/resources/JSON/BodyRequest";
-    public static String BARIER_TOKEN;
-//    public static final String JSON_VALIDATOR = DIR+"/src/test/resources/JSON/SchemaValidator/Post";
+    public static final String JSON_FILE = DIR+"/src/test/resources/JSON";
 
-    public static String LOGIN_USER = URL+"/login";
-    public static String REGISTER_NEW_USER = URL+ "/admin/users";
-    public static String UPDATE_MENTOR_PROFILE = URL+ "/users";
+    public static String TokenAdmin;
 
-
-
-    @Step ("Login user with valid data")
-    public void setLoginUser(File json){
-        SerenityRest.given().contentType(ContentType.JSON).body(json);
-    }
-    @Step ("Register new user with valid data")
-    public void setRegisterNewUser(File json){
+    @Step ("Login Admin Background")
+    public void setLoginAdmin(File json){
         SerenityRest.given().contentType(ContentType.JSON).body(json);
     }
 
-    @Step ("Update User Profile with valid data")
-    public void setUpdateUserProfile(File json){
-        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
-                .contentType("multipart/form-data")
-                .multiPart("name", "Akunnya dihapus")
-                .multiPart("email", "testerqulity@gmail.com")
-                .multiPart("images","src/test/resources/features/login.Feature1bff2772.PNG");
+    @Step("Get All Class")
+    public void getAllClass(){
+        SerenityRest.given().headers("Authorization", "Bearer "+TokenAdmin).log().all();
     }
-    @Step ("Update User Mentor with valid data")
-    public void setUpdateMentorProfile(File json, String name, String email, String password, String images){
-        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
-                .contentType("multipart/form-data")
-                .multiPart("name", name)
-                .multiPart("email", email)
-                .multiPart("email", password)
-                .multiPart("images","src/test/resources/features/" + images);
+
+    @Step("Get All Class without Auth")
+    public void getAllClassWithoutAuth(){
+        SerenityRest.given();
     }
-    @Step ("Create new Task")
-    public void setCreateNewTask(File json,String title, String description, String time){
-        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
-                .contentType("multipart/form-data")
-                .multiPart("title", title)
-                .multiPart("description", description)
-                .multiPart("due_date", time)
-                .multiPart("file", "src/test/resources/features/testFileValid.PNG")
-                .multiPart("images","src/test/resources/features/testImagesValid.PNG");
+
+    @Step("Get All Users")
+    public void getAllUsers(){
+        SerenityRest.given().headers("Authorization","Bearer "+TokenAdmin).log().all();
     }
+
+    @Step("Get All Users without Auth")
+    public void getAllUsersWithoutAuth(){
+        SerenityRest.given();
+    }
+
+
+
+
+
+
+
+
+
 
 }
