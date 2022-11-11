@@ -12,7 +12,6 @@ import java.util.HashMap;
 
 import static mentutor.login.loginAPI.email;
 import static mentutor.login.loginAPI.password;
-import static mentutor.registers.registerVariable.*;
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.*;
 
