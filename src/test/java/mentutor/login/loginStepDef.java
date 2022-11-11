@@ -136,4 +136,10 @@ public class loginStepDef {
         SerenityRest.then()
                 .body(LoginResponses.ERROR_MESSAGE,equalTo(response));
     }
+
+    @Given("Admin reset Mentor data")
+    public void adminResetMentorData() {
+        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentor.json");
+        LoginAPI.setLoginUser(json);
+    }
 }
