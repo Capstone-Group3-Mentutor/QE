@@ -2,27 +2,27 @@ package mentutor.adminStepDef;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import mentutor.login.LoginAPi;
+import mentutor.adminBackground.AdminAPI;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
 public class GetAllUserStepDef {
 
     @Steps
-    LoginAPi loginAPi;
+    AdminAPI adminApi;
 
     @Given("Get all user using valid path with authorization")
     public void getAllUserUsingValidPathWithAuthorization() {
-        loginAPi.getAllUsers();
+        adminApi.getAllUsers();
     }
 
     @When("Send request get all user")
     public void sendRequestGetAllUser() {
-        SerenityRest.when().get(loginAPi.GET_ALL_USERS);
+        SerenityRest.when().get(adminApi.GET_ALL_USER);
     }
 
     @Given("Get all user using valid path without authorization")
     public void getAllUserUsingValidPathWithoutAuthorization() {
-        loginAPi.getAllUsersWithoutAuth();
+        adminApi.getAllUsersWithoutAuth();
     }
 }
