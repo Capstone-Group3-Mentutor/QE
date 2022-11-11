@@ -1,7 +1,7 @@
 Feature: Add Task by Mentor
   Background: Login Mentor
     Given Mentor login with all valid data
-    When Send request post login user
+    When User send request post login user
     And Set token to Mentor Token
 
   Scenario: Create Task with all valid data

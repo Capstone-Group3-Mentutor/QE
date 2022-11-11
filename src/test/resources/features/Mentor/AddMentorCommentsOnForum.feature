@@ -1,8 +1,7 @@
 Feature: Update Mentor Profile
   Background: Login Mentor
-#    Given Admin reset Mentor data
     Given Mentor login with all valid data
-    When Send request post login user
+    When User send request post login user
     And Set token to Mentor Token
     @positive
   Scenario: Add mentor comment with valid forum id and valid caption
