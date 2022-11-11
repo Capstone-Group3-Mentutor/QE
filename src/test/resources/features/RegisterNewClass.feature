@@ -1,8 +1,7 @@
 Feature: Register New Class
   Background: Login Admin
-    Given User login with all valid data
+    Given User login with valid data
     When Send request post login user
-    Then Should return 200 OK
     And Set token to Admin Token
 
   @Tamara #RegisterNewClass_001
@@ -10,7 +9,6 @@ Feature: Register New Class
     Given Post create new class with valid data
     When Send request post create new class
     Then Should return status code 201 created
-    And Response body should contain message "Success created"
     And Post create new user json schema validator
 
   @Tamara #RegisterNewClass_002
@@ -18,7 +16,6 @@ Feature: Register New Class
     Given Post create new class without authorization
     When Send request post create new class
     Then Should return status code 400 Bad request
-    And Response body should contain message "Invalid Input from Client"
     And Post create new user json schema validator
 
   @Tamara #RegisterNewClass_003
@@ -26,7 +23,6 @@ Feature: Register New Class
     Given Post create new class with empty class name
     When Send request post create new class
     Then Should return status code 400 Bad request
-    And Response body should contain message "Invalid Input from Client"
     And Post create new user json schema validator
 
   @Tamara #RegisterNewClass_004
@@ -34,7 +30,6 @@ Feature: Register New Class
     Given Post create new class with numeric class name
     When Send request post create new class
     Then Should return status code 400 Bad request
-    And Response body should contain message "Invalid Input from Client"
     And Post create new user json schema validator
 
   @Tamara #RegisterNewClass_005
@@ -42,7 +37,6 @@ Feature: Register New Class
     Given Post create new class with special char class name
     When Send request post create new class
     Then Should return status code 400 Bad request
-    And Response body should contain message "Invalid Input from Client"
     And Post create new user json schema validator
 
 
