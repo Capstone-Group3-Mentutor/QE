@@ -3,7 +3,7 @@ package mentutor.mentor;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import mentutor.login.loginAPI;
+import mentutor.login.baseLoginAPI;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
@@ -11,8 +11,8 @@ import java.io.File;
 
 public class updateMentorProfileStepDef {
     @Steps
-    loginAPI LoginAPI;
-    testMentorAPI MentorAPI;
+    baseLoginAPI baseLoginAPI;
+    mentorAPI MentorAPI;
 //    @Given("Mentor set update profile data with all valid data")
 //    public void mentorSetUpdateProfileData() {
 //        File json = new File(LoginAPI.JSON_FILE+"/PutUpdateProfileMentorWithValidData.json");
@@ -27,14 +27,14 @@ public class updateMentorProfileStepDef {
         String email = "";
         String Password = "";
         String images = "";
-//        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile( name, email, Password, images);
+//        baseLoginAPI.setUpdateMentorProfile( name, email, Password, images);
+        MentorAPI.setUpdateProfile( name, email, Password, images);
     }
 
     @Given("Mentor set update profile data with Admin token")
     public void mentorSetUpdateProfileDataWithAdminToken() {
-        File json = new File(LoginAPI.JSON_FILE+"/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateUserProfile(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/PutUpdateProfileMentorWithValidData.json");
+        baseLoginAPI.setUpdateUserProfile(json);
     }
 
 
@@ -44,7 +44,7 @@ public class updateMentorProfileStepDef {
         String password = "";
         String images = "";
 //        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile( name, email, password, images);
+        baseLoginAPI.setUpdateMentorProfile( name, email, password, images);
     }
 
     @Given("Mentor set update profile data with password {string}")
@@ -53,13 +53,13 @@ public class updateMentorProfileStepDef {
         String email = "";
         String images = "";
 //        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile( name, email, password, images);
+        baseLoginAPI.setUpdateMentorProfile( name, email, password, images);
     }
 
     @Given("Mentor set update profile data with Name {string}, Email {string}, Password {string}, images {string}")
     public void mentorSetUpdateProfileDataWithNameEmailPassword(String name, String email, String password, String images) {
 //        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile( name, email, password, images);
+        baseLoginAPI.setUpdateMentorProfile( name, email, password, images);
     }
 
     @Given("Mentor set update profile data with images {string}")
@@ -68,7 +68,7 @@ public class updateMentorProfileStepDef {
         String email = "";
         String password = "";
 //        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile( name, email, password, images);
+        baseLoginAPI.setUpdateMentorProfile( name, email, password, images);
     }
 
     @And("Reset mentor profile")
@@ -77,7 +77,7 @@ public class updateMentorProfileStepDef {
         String images = "";
         String email = "testerqulity@gmail.com";
         String password = "Admin123$";
-        LoginAPI.setUpdateMentorProfile(name, email, password, images);
+        baseLoginAPI.setUpdateMentorProfile(name, email, password, images);
         SerenityRest.when().put(mentorAPI.UPDATE_MENTOR_PROFILE);
 
     }

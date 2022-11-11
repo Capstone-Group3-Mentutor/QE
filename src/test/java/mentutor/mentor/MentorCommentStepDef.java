@@ -2,16 +2,16 @@ package mentutor.mentor;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import mentutor.login.loginAPI;
+import mentutor.login.baseLoginAPI;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
 public class MentorCommentStepDef {
     @Steps
-    loginAPI LoginAPI;
+    baseLoginAPI baseLoginAPI;
     @Given("Mentor set forum id to {int} and comment {string}")
     public void mentorSetForumIdToAndCaption(int forum, String comment) {
-        LoginAPI.setAddMentorComment(forum,comment);
+        baseLoginAPI.setAddMentorComment(forum,comment);
     }
 
     @When("User send request post add comment")
@@ -21,22 +21,22 @@ public class MentorCommentStepDef {
 
     @Given("Mentor set forum id to {string} and comment {string}")
     public void mentorSetForumIdToAndComment(String forum, String comment) {
-        LoginAPI.setAddMentorCommentInvalid(forum,comment);
+        baseLoginAPI.setAddMentorCommentInvalid(forum,comment);
     }
 
     @Given("Mentor set comment {string}")
     public void mentorSetComment(String comment) {
-        LoginAPI.setAddMentorCommentwithoutID(comment);
+        baseLoginAPI.setAddMentorCommentwithoutID(comment);
     }
 
     @Given("Mentor set forum id to {int} and comment {int}")
     public void mentorSetForumIdToAndComment(int forum, int comment) {
-        LoginAPI.setAddMentorCommentfloat(forum,comment);
+        baseLoginAPI.setAddMentorCommentfloat(forum,comment);
     }
 
     @Given("Mentor set forum id to {int} and comment to {float}")
     public void mentorSetForumIdToAndComment(int forum, float comment) {
-        LoginAPI.setAddMentorCommentfloat(forum,comment);
+        baseLoginAPI.setAddMentorCommentfloat(forum,comment);
     }
 
     @Given("Mentor set forum id to {int}")

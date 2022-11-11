@@ -2,16 +2,16 @@ package mentutor.mentor;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import mentutor.login.loginAPI;
+import mentutor.login.baseLoginAPI;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
 public class getAllTaskbyIdMentor {
     @Steps
-    loginAPI LoginAPI;
+    baseLoginAPI baseLoginAPI;
     @Given("Mentor set token to Mentor Token")
     public void mentorSetTokenToMentorToken() {
-        LoginAPI.setGetAllTaskbyIDMentor();
+        baseLoginAPI.setGetAllTaskbyIDMentor();
     }
 
     @When("User send request get all task")
@@ -21,11 +21,11 @@ public class getAllTaskbyIdMentor {
 
     @Given("Mentor set token to Admin Token")
     public void mentorSetTokenToAdminToken() {
-        LoginAPI.setGetAllTaskbyIDMentor();
+        baseLoginAPI.setGetAllTaskbyIDMentor();
     }
     @Given("Mentor set task id to {int}")
     public void mentorSetTaskIdTo(int id) {
-        LoginAPI.setGetDetailTask(id);
+        baseLoginAPI.setGetDetailTask(id);
     }
     @When("User send request get detail task")
     public void userSendRequestGetDetailTaskWithTaskId() {
@@ -35,7 +35,7 @@ public class getAllTaskbyIdMentor {
 
     @Given("Mentor set invalid task id to {string}")
     public void mentorSetInvalidTaskIdTo(String id) {
-        LoginAPI.setGetDetailTaskInvalid(id);
+        baseLoginAPI.setGetDetailTaskInvalid(id);
     }
 
     @When("User send request delete task")

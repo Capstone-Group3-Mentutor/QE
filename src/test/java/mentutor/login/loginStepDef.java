@@ -1,30 +1,23 @@
 package mentutor.login;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
-import org.hamcrest.Matchers;
+
 import java.io.File;
-import java.util.HashMap;
-
-import static mentutor.login.loginAPI.email;
-import static mentutor.login.loginAPI.password;
-import static net.serenitybdd.rest.SerenityRest.*;
-import static org.hamcrest.Matchers.*;
 
 import static org.hamcrest.Matchers.*;
+
 public class loginStepDef {
 
 
     @Steps
-    loginAPI LoginAPI;
+    baseLoginAPI baseLoginAPI;
     @Given("User login with all valid data")
     public void userLoginWithAllValidData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithValidData.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Login/LoginUserWithValidData.json");
+        baseLoginAPI.setLoginUser(json);
     }
     @Given("Mentor login with all valid data")
     public void mentorLoginWithAllValidData() {
@@ -41,14 +34,14 @@ public class loginStepDef {
 //                    .multiPart("email", email)
 //                    .multiPart("email", password);
 //        }
-        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentor.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Background/LoginMentor.json");
+        baseLoginAPI.setLoginUser(json);
 
     }
 
     @When("Send request post login user")
     public void sendRequestPostLoginUser() {
-        SerenityRest.when().post(LoginAPI.LOGIN_USER);
+        SerenityRest.when().post(baseLoginAPI.LOGIN_USER);
     }
 
     @And("Response body should contain id user {int}, name {string}, email {string}, class {} and role {string}")
@@ -63,13 +56,13 @@ public class loginStepDef {
     @Given("Admin register new mentor")
     public void adminRegisterNewMentor() {
 //        SerenityRest.get().body(LoginResponses.TOKEN);
-        File json = new File(LoginAPI.JSON_FILE+"/Login/PostNewPostWithValidUserId.json");
-        LoginAPI.setRegisterNewUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Login/PostNewPostWithValidUserId.json");
+        baseLoginAPI.setRegisterNewUser(json);
     }
 
     @When("Admin send request post new user")
     public void adminSendRequestPostNewUser() {
-        SerenityRest.when().post(LoginAPI.REGISTER_NEW_USER);
+        SerenityRest.when().post(baseLoginAPI.REGISTER_NEW_USER);
     }
 
 
@@ -85,44 +78,44 @@ public class loginStepDef {
 //    }
     @Given("User set login data wit unregistered email")
     public void userSetLoginDataWitUnregisteredEmail() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithUnregisteredEmail.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Login/LoginUserWithUnregisteredEmail.json");
+        baseLoginAPI.setLoginUser(json);
     }
 
     @Given("User login with invalid email")
     public void userLoginWithInvalidEmail() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithInvalidEmail.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Login/LoginUserWithInvalidEmail.json");
+        baseLoginAPI.setLoginUser(json);
     }
 
     @Given("User login with invalid Password")
     public void userLoginWithInvalidPassword() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithInvalidPassword.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Login/LoginUserWithInvalidPassword.json");
+        baseLoginAPI.setLoginUser(json);
     }
 
     @Given("User login with all invalid data")
     public void userLoginWithAllInvalidData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithAllInvalidData.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Login/LoginUserWithAllInvalidData.json");
+        baseLoginAPI.setLoginUser(json);
     }
 
     @Given("User login with empty email")
     public void userLoginWithEmptyEmail() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithEmptyEmail.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Login/LoginUserWithEmptyEmail.json");
+        baseLoginAPI.setLoginUser(json);
     }
 
     @Given("User login with empty password")
     public void userLoginWithEmptyPassword() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithEmptyDassword.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Login/LoginUserWithEmptyDassword.json");
+        baseLoginAPI.setLoginUser(json);
     }
 
     @Given("User login with all empty data")
     public void userLoginWithAllEmptyData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithAllEmptyData.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Login/LoginUserWithAllEmptyData.json");
+        baseLoginAPI.setLoginUser(json);
     }
 
     @And("Response body massage is {string}")
@@ -139,7 +132,7 @@ public class loginStepDef {
 
     @Given("Admin reset Mentor data")
     public void adminResetMentorData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentor.json");
-        LoginAPI.setLoginUser(json);
+        File json = new File(baseLoginAPI.JSON_FILE+"/Background/LoginMentor.json");
+        baseLoginAPI.setLoginUser(json);
     }
 }

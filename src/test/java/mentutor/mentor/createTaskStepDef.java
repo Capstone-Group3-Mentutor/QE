@@ -1,19 +1,17 @@
 package mentutor.mentor;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import mentutor.login.loginAPI;
+import mentutor.login.baseLoginAPI;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
-import java.io.File;
-
 public class createTaskStepDef {
     @Steps
-    loginAPI LoginAPI;
+    baseLoginAPI baseLoginAPI;
     testMentorAPI MentorAPI;
     @Given("Mentor set create task data with Title {string}, Description {string}, Time {string}")
     public void mentorSetCreateTaskDataWithTitleDescriptionTime(String title_valid, String description, String time) {
-        LoginAPI.setCreateNewTask(title_valid, description, time);
+        baseLoginAPI.setCreateNewTask(title_valid, description, time);
     }
 
     @When("User send request post create task")

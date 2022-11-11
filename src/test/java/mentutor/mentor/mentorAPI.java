@@ -1,4 +1,5 @@
 package mentutor.mentor;
+import io.restassured.RestAssured;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
@@ -23,11 +24,13 @@ public class mentorAPI {
 
 
     @Step ("Update Mentor Profile with valid data")
-    public void setUpdateMentorProfile(File json){
-        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
+    public void setUpdateProfile( String name, String email, String password, String images){
+        RestAssured.given().log().all()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
                 .contentType("multipart/form-data")
-                .multiPart("name", "Akunnya dihapus")
-                .multiPart("email", "testerqulity@gmail.com")
-                .multiPart("images","src/test/resources/features/login.Feature1bff2772.PNG");
+                .multiPart("name", name)
+                .multiPart("email", email)
+                .multiPart("email", password)
+                .multiPart("images","src/test/resources/features/" + images);
     }
 }
