@@ -1,5 +1,6 @@
 package mentutor.mentor;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import mentutor.login.loginAPI;
@@ -26,8 +27,8 @@ public class updateMentorProfileStepDef {
         String email = "";
         String Password = "";
         String images = "";
-        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile(json, name, email, Password, images);
+//        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
+        LoginAPI.setUpdateMentorProfile( name, email, Password, images);
     }
 
     @Given("Mentor set update profile data with Admin token")
@@ -42,8 +43,8 @@ public class updateMentorProfileStepDef {
         String name = "";
         String password = "";
         String images = "";
-        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile(json, name, email, password, images);
+//        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
+        LoginAPI.setUpdateMentorProfile( name, email, password, images);
     }
 
     @Given("Mentor set update profile data with password {string}")
@@ -51,13 +52,33 @@ public class updateMentorProfileStepDef {
         String name = "";
         String email = "";
         String images = "";
-        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile(json, name, email, password, images);
+//        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
+        LoginAPI.setUpdateMentorProfile( name, email, password, images);
     }
 
     @Given("Mentor set update profile data with Name {string}, Email {string}, Password {string}, images {string}")
     public void mentorSetUpdateProfileDataWithNameEmailPassword(String name, String email, String password, String images) {
-        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile(json, name, email, password, images);
+//        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
+        LoginAPI.setUpdateMentorProfile( name, email, password, images);
+    }
+
+    @Given("Mentor set update profile data with images {string}")
+    public void mentorSetUpdateProfileDataWithImages(String images) {
+        String name = "";
+        String email = "";
+        String password = "";
+//        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
+        LoginAPI.setUpdateMentorProfile( name, email, password, images);
+    }
+
+    @And("Reset mentor profile")
+    public void resetMentorProfile() {
+        String name = "Berhasil lah";
+        String images = "";
+        String email = "testerqulity@gmail.com";
+        String password = "Admin123$";
+        LoginAPI.setUpdateMentorProfile(name, email, password, images);
+        SerenityRest.when().put(mentorAPI.UPDATE_MENTOR_PROFILE);
+
     }
 }
