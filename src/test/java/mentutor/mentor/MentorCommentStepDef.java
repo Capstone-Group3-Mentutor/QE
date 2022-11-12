@@ -40,6 +40,7 @@ public class MentorCommentStepDef {
     }
 
     @Given("Mentor set forum id to {int}")
-    public void mentorSetForumIdTo(int arg0) {
+    public void mentorSetForumIdTo(int forum) {
+        LoginAPI.setAddMentorCommentWithoutData(forum);
     }
 }

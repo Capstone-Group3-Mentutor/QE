@@ -3,7 +3,7 @@ Feature: Update Mentee Profile
     Given Mentee login with all valid data
     When User send request post login user
 #    Then Should return 200 OK
-    And Set token to Mentor Token
+    And Set token to base Mentor Token
 
   Scenario: Update profile Mentee with all valid data
     Given Mentee set update profile data with Name "Jangan Dihapus", Email "jago.tester@gmail.com", Password "Admin123$", images "testImageInvalid.jpg"

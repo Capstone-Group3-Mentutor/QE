@@ -2,7 +2,7 @@ Feature: Update Mentor Profile
   Background: Login Mentor
     Given Mentor login with all valid data
     When User send request post login user
-    And Set token to Mentor Token
+    And Set token to base Mentor Token
     @positive
   Scenario: Add mentor comment with valid forum id and valid caption
   Given Mentor set forum id to 1 and comment "saya sih yes"

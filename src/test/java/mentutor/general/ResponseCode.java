@@ -15,19 +15,12 @@ public class ResponseCode {
     public void shouldReturnCreated(int Created) {
         SerenityRest.then().statusCode(Created);
     }
-
     @Then("Should return {int} Not Found")
     public void shouldReturnNotFound(int NotFound) {
         SerenityRest.then().statusCode(NotFound);
     }
-
-
-
     @Then("Should return {int} Bad Request")
     public void shouldReturnBadRequest(int Bad) {
         SerenityRest.then().statusCode(Bad);
     }
-
-
-
 }

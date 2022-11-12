@@ -33,7 +33,7 @@ public class getAllTaskbyIdMentor {
     }
 
 
-    @Given("Mentor set invalid task id to {string}")
+    @Given("Mentor set task id to {string}")
     public void mentorSetInvalidTaskIdTo(String id) {
         LoginAPI.setGetDetailTaskInvalid(id);
     }
@@ -44,4 +44,14 @@ public class getAllTaskbyIdMentor {
     }
 
 
+    @Given("Mentor set task id to {int} without token")
+    public void mentorSetTaskIdToWithoutToken(int id) {
+        LoginAPI.setGetDetailTaskWithoutToken(id);
+    }
+
+    @Given("Mentor set mentor token without set task id")
+    public void mentorSetMentorTokenWithoutSetTaskId() {
+        int id = 0;
+        LoginAPI.setGetDetailTask(id);
+    }
 }
