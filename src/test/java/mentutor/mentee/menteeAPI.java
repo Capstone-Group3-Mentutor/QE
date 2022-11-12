@@ -5,6 +5,8 @@ import net.thucydides.core.annotations.Step;
 
 public class menteeAPI {
     public static String URL = "https://ecommerce-alta.online";
+    public static String LOGIN_USER = URL+"/login";
+
     public static final String DIR = System.getProperty("user.dir");
     public static final String JSON_FILE = DIR+"/src/test/resources/JSON/BodyRequest";
     public static String BARIER_TOKEN;
@@ -20,5 +22,13 @@ public class menteeAPI {
     @Step("Get All Class Task")
     public void setGetAllClassTask(){
         SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all();
+    }
+    @Step ("Add Mentor Comment")
+    public void setAddComment(int forum, String comment){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+                .pathParam("forum",forum)
+                .multiPart("caption", comment)
+                .log().all();
     }
 }

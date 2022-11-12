@@ -121,16 +121,24 @@ public class loginStepDef {
         SerenityRest.then()
                 .body(LoginResponses.ERROR_MESSAGE,equalTo(response));
     }
-
-    @Given("Admin reset Mentor data")
-    public void adminResetMentorData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentor.json");
-        LoginAPI.setLoginUser(json);
-    }
-
     @Given("Mentee login with all valid data")
     public void menteeLoginWithAllValidData() {
         File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentee.json");
         LoginAPI.setLoginUser(json);
+    }
+    @And("Reset Mentor data")
+    public void resetMentorData() {
+        int id = 1010;
+        String email = "testerqulity@gmail.com";
+        String password = "Admin123$";
+//        SerenityRest.when().post(LoginAPI.LOGIN_USER);
+//        LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
+        LoginAPI.setResetUserData(id, email, password);
+    }
+
+    @When("Admin set admin token")
+    public void adminSetAdminToken() {
+        SerenityRest.when().post(LoginAPI.LOGIN_USER);
+        LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
     }
 }

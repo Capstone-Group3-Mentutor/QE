@@ -1,8 +1,10 @@
 Feature: Update Mentor Profile
   Background: Login Mentor
+#    Given Admin login
+#    When Admin set admin token
+#    And Reset Mentor data
     Given Mentor login with all valid data
     When User send request post login user
-#    Then Should return 200 OK
     And Set token to base Mentor Token
 
   Scenario: Update profile Mentor with all valid data

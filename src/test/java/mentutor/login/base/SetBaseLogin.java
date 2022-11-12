@@ -25,7 +25,8 @@ public class SetBaseLogin {
 
     @Step("Login user with valid data")
     public void setLoginUser(File json){
-        SerenityRest.given().contentType(ContentType.JSON).body(json);
+        SerenityRest.given()
+                .contentType(ContentType.JSON).body(json);
     }
     @Step ("Register new user with valid data")
     public void setRegisterNewUser(File json){
@@ -249,5 +250,14 @@ public class SetBaseLogin {
                 .pathParam("forum",forum)
                 .log().all();
     }
+    @Step ("reset user data")
+    public void setResetUserData(int id,String email, String password){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+                .pathParam("id",id)
+                .multiPart("email", email)
+                .multiPart("password", password);
+    }
+
 
 }

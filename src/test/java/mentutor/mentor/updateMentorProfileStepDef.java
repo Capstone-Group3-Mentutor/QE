@@ -57,7 +57,6 @@ public class updateMentorProfileStepDef {
 
     @Given("Mentor set update profile data with Name {string}, Email {string}, Password {string}, images {string}")
     public void mentorSetUpdateProfileDataWithNameEmailPassword(String name, String email, String password, String images) {
-//        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
         LoginAPI.setUpdateMentorProfile( name, email, password, images);
     }
 
@@ -82,4 +81,10 @@ public class updateMentorProfileStepDef {
     }
 
 
+    @Given("Admin login")
+    public void adminLogin() {
+        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginAdmin.json");
+        LoginAPI.setLoginUser(json);
+        SerenityRest.when().post(LoginAPI.LOGIN_USER);
+    }
 }
