@@ -3,7 +3,7 @@ Feature: Get All Task by Class
     Given Mentee login with all valid data
     When User send request post login user
     Then Should return 200 OK
-    And Set token to base Mentor Token
+    And Set token to base Mentee Token
   Scenario: Get all task with valid class id
     Given Mentee set token to Mentee Token
     When User send request get all class task
