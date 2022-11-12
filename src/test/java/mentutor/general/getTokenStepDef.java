@@ -17,7 +17,7 @@ public class getTokenStepDef {
         File json = new File(LoginAPI.JSON_FILE+"/PutUpdateProfileMentorWithValidData.json");
         LoginAPI.setUpdateUserProfile(json);
     }
-    @And("Set token to Mentor Token")
+    @And("Set token to base Mentor Token")
     public void setTokenToMentorToken() {
         SerenityRest.when().post(LoginAPI.LOGIN_USER);
         LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");

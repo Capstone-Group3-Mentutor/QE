@@ -2,69 +2,145 @@ Feature: Add Task by Mentor
   Background: Login Mentor
     Given Mentor login with all valid data
     When User send request post login user
-    And Set token to Mentor Token
+    And Set token to base Mentor Token
+  @positive
+  Scenario Outline: Create Task with all valid data
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 201 Created
+    Examples:
+      | Title          | Description   | Images            | File              | Time        |
+      | percobaan aja  | matematika    | testImageValid.jpg| testFileValid.pdf | 2022-11-05  |
+  @positive
+  Scenario Outline: Create Task with numeric title
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 201 Created
+    Examples:
+      | Title  | Description   | Images            | File              | Time        |
+      | 12314  | matematika    | testImageValid.jpg| testFileValid.pdf | 2022-11-05  |
+  @positive
+  Scenario Outline: Create Task with Special Character title
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 201 Created
+    Examples:
+      | Title  | Description   | Images            | File              | Time        |
+      | !@#$@  | matematika    | testImageValid.jpg| testFileValid.pdf | 2022-11-05  |
+  @positive @negative
+  Scenario Outline: Create Task with more than 255 character title
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 400 Bad Request
+    Examples:
+      | Description  | Images             | File              | Time       |Title           |
+      | matematika   | testImageValid.jpg | testFileValid.pdf | 2022-11-05 |jangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusingdirilusendirikanmalahjadimasalahhooomalahngeyeltetepajadibacadasarsusahdibilanginkanpusingjadinyalugimanarasanyaudahpusingbelumklobelumyabaguslahtapigakadagunanyajugasihinilubacawkwkwk |
+      | matematika   | testImageValid.jpg | testFileValid.pdf | 2022-11-05 |jangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusingdirilusendirikanmalahjadimasalahhooomalahngeyeltetepajadibacadasarsusahdibilanginkanpusingjadinyalugimanarasanyaudahpusingbelumklobelumyabaguslahtapigakadagunanyajugasihinilubacawkwkwkjangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusingdirilusendirikanmalahjadimasalahhooomalahngeyeltetepajadibacadasarsusahdibilanginkanpusingjadinyalugimanarasanyaudahpusingbelumklobelumyabaguslahtapigakadagunanyajugasihinilubacawkwkwkjangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusingdirilusendirikanmalahjadimasalahhooomalahngeyeltetepajadibacadasarsusahdibilanginkanpusingjadinyalugimanarasanyaudahpusingbelumklobelumyabaguslahtapigakadagunanyajugasihinilubacawkwkwk |
+  @positive
+  Scenario Outline: Create Task with numeric description
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 201 Created
+    Examples:
+      | Title          | Description  | Images      | File       | Time       |
+      | bilangan prima | 1241422142   | testImageValid.jpg    | testFileValid.pdf  | 2022-11-05 |
+  @positive
+  Scenario Outline: Create Task with Special Character description
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 201 Created
+    Examples:
+      | Title          | Description  | Images      | File       | Time       |
+      | bilangan prima | !#@#@$#$#@   | testImageValid.jpg    | testFileValid.pdf  | 2022-11-05 |
+  @positive @negative
+  Scenario Outline: Create Task with more than 255 character description
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 400 Bad Request
+    Examples:
+      | Title          |  Images      | File       | Time       | Description  |
+      | bilangan prima |  testImageValid.jpg    | testFileValid.pdf  | 2022-11-05 | jangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusingdirilusendirikanmalahjadimasalahhooomalahngeyeltetepajadibacadasarsusahdibilanginkanpusingjadinyalugimanarasanyaudahpusingbelumklobelumyabaguslahtapigakadagunanyajugasihinilubacawkwkwk |
+      | bilangan prima |  testImageValid.jpg    | testFileValid.pdf  | 2022-11-05 | jangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusingdirilusendirikanmalahjadimasalahhooomalahngeyeltetepajadibacadasarsusahdibilanginkanpusingjadinyalugimanarasanyaudahpusingbelumklobelumyabaguslahtapigakadagunanyajugasihinilubacawkwkwkjangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusingdirilusendirikanmalahjadimasalahhooomalahngeyeltetepajadibacadasarsusahdibilanginkanpusingjadinyalugimanarasanyaudahpusingbelumklobelumyabaguslahtapigakadagunanyajugasihinilubacawkwkwkjangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusingdirilusendirikanmalahjadimasalahhooomalahngeyeltetepajadibacadasarsusahdibilanginkanpusingjadinyalugimanarasanyaudahpusingbelumklobelumyabaguslahtapigakadagunanyajugasihinilubacawkwkwk |
+  @negative
+    #    BUG
+  Scenario Outline: Create Task with invalid Images extension
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 400 Bad Request
+    Examples:
+      | Title          | Description  | Images      | File       | Time       |
+      | bilangan prima | matematika   | testFileValid.pdf    | testFileValid.pdf  | 2022-11-05 |
+  @negative
+    #    BUG
+  Scenario Outline: Create Task with invalid file extension
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 400 Bad Request
+    Examples:
+      | Title          | Description  | Images                | File                | Time       |
+      | bilangan prima | matematika   | testImageValid.jpg    | testImageValid.jpg  | 2022-11-05 |
+  @negative
+    #    BUG
+  Scenario Outline: Create Task with big file size
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 400 Bad Request
+    Examples:
+      | Title          | Description  | Images                | File                | Time       |
+      | bilangan prima | matematika   | testImageInvalid.jpg  | testFileValid.pdf   | 2022-11-05 |
+      | bilangan prima | matematika   | testImageValid.jpg    | testFileInvalid.pdf | 2022-11-05 |
+  @negative
+  Scenario Outline: Create Task with invalid time format
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 400 Bad Request
+    Examples:
+      | Title          | Description  | Images                | File                | Time              |
+      | bilangan prima | matematika   | testImageValid.jpg    | testFileValid.pdf   | 05-11-2023        |
+      | bilangan prima | matematika   | testImageValid.jpg    | testFileValid.pdf   | 05/11/2023        |
+      | bilangan prima | matematika   | testImageValid.jpg    | testFileValid.pdf   | 05-November-2023  |
+  @negative
+  Scenario Outline: Create Task with incomplete data
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    When User send request post create task
+    Then Should return 400 Bad Request
+    Examples:
+      | Title          | Description   | Images               | File               | Time       |
+      |                | matematika    | testImageValid.jpg   | testFileValid.pdf  | 2022-11-05 |
+      | bilangan prima |               | testImageValid.jpg   | testFileValid.pdf  | 2022-11-05 |
+      |                |               | testImageValid.jpg   | testFileValid.pdf  | 2022-11-05 |
+      | bilangan prima | matematika    |                      | testFileValid.pdf  | 2022-11-05 |
+      | bilangan prima | matematika    | testImageValid.jpg   |                    | 2022-11-05 |
+      | bilangan prima | matematika    | testImageValid.jpg   | testFileValid.pdf  |            |
 
-  Scenario: Create Task with all valid data
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
+
+  @negative
+  Scenario Outline: Create Task with empty data
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
     When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with numeric title
-    Given Mentor set create task data with Title "12324", Description "Percobaan di intelej", Time "2022-12-05"
+    Then Should return 400 Bad Request
+    Examples:
+      | Title | Description | Images  | File  | Time  |
+      |       |             |         |       |       |
+  @negative
+  Scenario Outline: Create Task without Token
+    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>" without token
     When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with Special Character title
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with more than max character title
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with numeric description
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with Special Character description
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with more than max character description
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with invalid Images extension
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with invalid file extension
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with big file size
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with invalid time format
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with incomplete data
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with empty data
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with Mentee Token
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task with Admin Token
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
-  Scenario: Create Task without Token
-    Given Mentor set create task data with Title "Trial Intelej", Description "Percobaan di intelej", Time "2022-12-05"
-    When User send request post create task
-    Then Should return 201 Created
+    Then Should return 400 Bad Request
+    Examples:
+      | Title          | Description  | Images      | File       | Time       |
+      | bilangan prima | matematika   | testImageValid.jpg    | testFileValid.pdf  | 2022-11-05 |
+#  Scenario Outline: Create Task with Mentee Token
+#    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+#    When User send request post create task
+#    Then Should return 201 Created
+#    Examples:
+#      | Title          | Description  | Images      | File       | Time       |
+#      | bilangan prima | matematika   | testImageValid.jpg    | testFileValid.pdf  | 2022-11-05 |
+#  Scenario Outline: Create Task with Admin Token
+#    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+#    When User send request post create task
+#    Then Should return 201 Created
+#    Examples:
+#      | Title          | Description  | Images      | File       | Time       |
+#      | bilangan prima | matematika   | testImageValid.jpg    | testFileValid.pdf  | 2022-11-05 |
