@@ -21,6 +21,8 @@ public class AdminAPI {
     public static final String UPDATE_USERS = "https://ecommerce-alta.online/admin/users/{id}";
     public static final String DIR = System.getProperty("user.dir");
     public static final String JSON_FILE = DIR+"/src/test/resources/JSON";
+    public static final String UPLOAD = "src/test/resources/JSON/BodyRequest/" ;
+
 
     public static String TokenAdmin;
 
@@ -152,6 +154,7 @@ public class AdminAPI {
     public void regisNewClassValidName(String className){
         SerenityRest.given()
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .contentType("multipart/form-data")
                 .multiPart("class_name",className);
     }
 
@@ -291,15 +294,18 @@ public class AdminAPI {
         SerenityRest.given()
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id)
+                .contentType("multipart/form-data")
                 .multiPart("class_name",class_name);
 
     }
 
     @Step("Put update class with valid status")
     public void UpdateClassValidStatus(int id, String status){
+        String class_name = "Bahasa jerman";
         SerenityRest.given()
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id)
+                .contentType("multipart/form-data")
                 .multiPart("status", status);
     }
 
@@ -325,6 +331,7 @@ public class AdminAPI {
         SerenityRest.given()
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id)
+                .contentType("multipart/form-data")
                 .multiPart("class_name", class_name);
     }
 
@@ -333,6 +340,7 @@ public class AdminAPI {
         SerenityRest.given()
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id)
+                .contentType("multipart/form-data")
                 .multiPart("class_name", class_name);
     }
 
@@ -341,6 +349,7 @@ public class AdminAPI {
         SerenityRest.given()
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id)
+                .contentType("multipart/form-data")
                 .multiPart("status", status);
     }
 
@@ -349,6 +358,7 @@ public class AdminAPI {
         SerenityRest.given()
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id)
+                .contentType("multipart/form-data")
                 .multiPart("status", status);
     }
 
@@ -361,7 +371,7 @@ public class AdminAPI {
                 .multiPart("name", name)
                 .multiPart("email", email)
                 .multiPart("password", password)
-                .multiPart("images", "src/test/resources/JSON/BodyRequest/" + images)
+                .multiPart("images", new File (UPLOAD +images))
                 .multiPart("id_class", id_class);
     }
 
@@ -373,7 +383,7 @@ public class AdminAPI {
                 .multiPart("name", name)
                 .multiPart("email", email)
                 .multiPart("password", password)
-                .multiPart("images", "src/test/resources/JSON/BodyRequest/" + images)
+                .multiPart("images", new File (UPLOAD +images))
                 .multiPart("id_class", id_class);
     }
 
@@ -428,7 +438,7 @@ public class AdminAPI {
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id)
                 .contentType("multipart/form-data")
-                .multiPart("images","src/test/resources/JSON/BodyRequest/" + images);
+                .multiPart("images", new File (UPLOAD +images));
     }
 
     @Step("Put update user with id_class not registered")
@@ -449,7 +459,6 @@ public class AdminAPI {
                 .multiPart("name", name)
                 .multiPart("email", email)
                 .multiPart("password", password)
-                .multiPart("images", " " + images)
                 .multiPart("id_class", id_class);
             }
 

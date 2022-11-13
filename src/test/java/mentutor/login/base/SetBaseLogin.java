@@ -9,8 +9,9 @@ import java.io.File;
 public class SetBaseLogin {
     public static String URL = "https://ecommerce-alta.online";
     public static final String DIR = System.getProperty("user.dir");
-    public static final String JSON_FILE = DIR+"/src/test/resources/JSON/BodyRequest";
     public static final String UPLOAD = "src/test/resources/JSON/BodyRequest/" ;
+    public static String UPDATE_USER_PROFILE = URL + "/users";
+
     public static String BARIER_TOKEN;
     public static final String JSON_VALIDATOR = DIR+"/src/test/resources/JSON/SchemaValidator/Post";
 
@@ -49,8 +50,7 @@ public class SetBaseLogin {
                 .multiPart("name", name)
                 .multiPart("email", email)
                 .multiPart("password", password)
-                .multiPart("images", new File (UPLOAD +images))
-                .log().all();
+                .multiPart("images", new File (UPLOAD +images));
     }
     public void setUpdateMentorProfileWithoutImages( String name, String email, String password){
         SerenityRest.given()
@@ -290,14 +290,14 @@ public class SetBaseLogin {
                 .pathParam("forum",forum)
                 .log().all();
     }
-//    @Step ("reset user data")
-//    public void setResetUserData(int id,String email, String password){
-//        SerenityRest.given()
-//                .headers("Authorization","Bearer "+ BARIER_TOKEN)
-//                .pathParam("id",id)
-//                .multiPart("email", email)
-//                .multiPart("password", password);
-//    }
+    @Step ("reset user data")
+    public void setResetUserData(String name,String email, String password){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+                .multiPart("name", name)
+                .multiPart("email", email)
+                .multiPart("password", password);
+    }
     @Step ("Submit Task")
     public void setSubmitTask(int task, String file){
         SerenityRest.given()

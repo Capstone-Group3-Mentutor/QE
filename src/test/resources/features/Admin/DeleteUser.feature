@@ -11,7 +11,8 @@ Feature: Delete User Account
     Then Should return status code 200 OK
     Examples:
       | id |
-      | 11  |
+      | 26  |
+
 
   @Tamara #DeleteUser_002
   Scenario Outline: Delete User Account without Authorized
@@ -20,7 +21,7 @@ Feature: Delete User Account
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 11  |
+      | 7  |
 
   @Tamara #DeleteUser_003
   Scenario Outline: Delete User Account With Unregistered Id
@@ -48,4 +49,4 @@ Feature: Delete User Account
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 1007 |
+      | 3 |

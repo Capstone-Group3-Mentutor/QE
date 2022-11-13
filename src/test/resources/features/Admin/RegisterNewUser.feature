@@ -80,7 +80,7 @@ Feature: Register New User
   Scenario: Post create new user input deleted email in body JSON
     Given Post create new user with deleted email
     When Send request post create new user
-    Then Should return status code 400 Bad request
+    Then Should return status code 201 created
 #    And Post create new user json schema validator
 
   @Tamara #RegisterNewUser_013
