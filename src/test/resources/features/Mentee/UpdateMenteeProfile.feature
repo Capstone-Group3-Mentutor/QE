@@ -5,7 +5,7 @@ Feature: Update Mentee Profile
     And Set token to base Mentor Token
 
   Scenario: Update profile Mentee with all valid data
-    Given Mentee set update profile data with Name "Base Mentee", Email "setmentee@gmail.com", Password "Admin123$", images "testImageInvalid.jpg"
+    Given Mentee set update profile data with Name "Base Mentee", Email "setmentee@gmail.com", Password "Admin123$", images "testImageValid.PNG"
     When User send request put update data
     Then Should return 201 Created
   Scenario: Update name Mentee with Numeric
@@ -23,10 +23,6 @@ Feature: Update Mentee Profile
     When User send request put update data
     Then Should return 400 Bad Request
 
-  Scenario: Update email Mentee without '@'
-    Given Mentee set update profile data with email "jonigmail.com"
-    When User send request put update data
-    Then Should return 400 Bad Request
 
   Scenario: Update email Mentee with full numeric email address
     Given Mentee set update profile data with email "214124"
@@ -87,6 +83,12 @@ Feature: Update Mentee Profile
     When User send request put update data
     Then Should return 400 Bad Request
 
+    # BUG
+  Scenario: Update email Mentee without '@'
+    Given Mentee set update profile data with email "jonigmail.com"
+    When User send request put update data
+    Then Should return 400 Bad Request
+
     Scenario:  Update password Mentee space ( ) char
     Given Mentee set update profile data with password "Admin 123$"
     When User send request put update data
@@ -95,3 +97,5 @@ Feature: Update Mentee Profile
 #    Given Mentee set update profile data with Admin token
 #    When User send request put update data
 #    Then Should return 201 Created
+
+

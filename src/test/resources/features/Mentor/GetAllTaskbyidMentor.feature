@@ -1,4 +1,4 @@
-Feature: Update Mentor Profile
+Feature: Get all task by Mentor
   Background: Login Mentor
     Given Mentor login with all valid data
     When User send request post login user

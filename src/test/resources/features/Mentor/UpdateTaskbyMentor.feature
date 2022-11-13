@@ -10,7 +10,7 @@ Feature: Update Mentor Profile
     Then Should return 201 Created
   Examples:
   | id  | Title          | Description   | Images            | File              | Time        |
-  | 9  | percobaan diintelej | matematika    | testImageValid.PNG| testFileValid.pdf | 2022-11-05  |
+  | 25  | percobaan diintelej | matematika    | testImageValid.PNG| testFileValid.pdf | 2022-11-05  |
   @negative
   Scenario Outline: Update task with invalid task id and valid data
     Given Mentor set update task data with Id "<id>", Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
@@ -24,7 +24,7 @@ Feature: Update Mentor Profile
   Scenario Outline: Update task with unregistered task id and valid data
     Given Mentor set update task data with Id <id>, Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
     When User send request put update task
-    Then Should return 404 Not Found
+    Then Should return 400 Bad Request
     Examples:
       | id     | Title          | Description   | Images            | File              | Time        |
       | 999999 | percobaan aja  | matematika    | testImageValid.jpg| testFileValid.pdf | 2022-11-05  |

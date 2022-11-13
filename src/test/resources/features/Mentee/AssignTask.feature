@@ -5,7 +5,7 @@ Feature: AssignTask
     And Set token to base Mentee Token
   @positive
   Scenario: Assign task with valid task id and valid file data
-    Given User set task id to 11 and file "testFileValid.pdf"
+    Given User set task id to 38 and file "testFileValid.pdf"
     When User send request post submit task
     Then Should return 201 Created
   Scenario: Assign task with invalid task id and valid file data
