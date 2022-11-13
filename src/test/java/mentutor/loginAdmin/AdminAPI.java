@@ -17,7 +17,8 @@ public class AdminAPI {
     public static final String GET_SINGLE_USER = "https://ecommerce-alta.online/admin/users/{id}";
     public static final String REGIS_NEW_CLASS = "https://ecommerce-alta.online/admin/classes";
     public static final String REGIS_NEW_USERS = "https://ecommerce-alta.online/admin/users";
-    public static final String UPDATE_CLASS = "https://ecommerce-alta.online//admin/classes/{id}";
+    public static final String UPDATE_CLASS = "https://ecommerce-alta.online/admin/classes/{id}";
+    public static final String UPDATE_USERS = "https://ecommerce-alta.online/admin/users/{id}";
     public static final String DIR = System.getProperty("user.dir");
     public static final String JSON_FILE = DIR+"/src/test/resources/JSON";
 
@@ -313,6 +314,7 @@ public class AdminAPI {
     @Step("Put update class empty all data")
     public void UpdateClassEmptyData(int id, File json){
         SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id)
                 .contentType(ContentType.JSON)
                 .body(json);
@@ -349,6 +351,110 @@ public class AdminAPI {
                 .pathParam("id",id)
                 .multiPart("status", status);
     }
+
+    @Step("Put update user with all valid data and authorization")
+    public void UpdateUserValidData(int id, String name, String email, String password, String images, int id_class){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("name", name)
+                .multiPart("email", email)
+                .multiPart("password", password)
+                .multiPart("images", "src/test/resources/JSON/BodyRequest/" + images)
+                .multiPart("id_class", id_class);
+    }
+
+    @Step("Put update user without authorization")
+    public void UpdateUserWithoutAuth(int id, String name, String email, String password, String images, int id_class){
+        SerenityRest.given()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("name", name)
+                .multiPart("email", email)
+                .multiPart("password", password)
+                .multiPart("images", "src/test/resources/JSON/BodyRequest/" + images)
+                .multiPart("id_class", id_class);
+    }
+
+    @Step("Put update user with numeric name")
+    public void UpdateUserNumericName(int id, int name){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("name", name);
+    }
+
+    @Step("Put update user with special char")
+    public void UpdateUserCharName(int id, String name){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("name", name);
+    }
+
+    @Step("Put update user with invalid email")
+    public void UpdateUserInvalidEmail(int id, String email){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("email", email);
+    }
+
+    @Step("Put update user with numeric password")
+    public void UpdateUserNumericPass(int id, int password){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("password", password);
+    }
+
+    @Step("Put update user with invalid password")
+    public void UpdateUserInvalidPass(int id, String password){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("password", password);
+    }
+
+    @Step("Put update user with invalid images extention")
+    public void UpdateUserInvalidImage(int id, String images){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("images","src/test/resources/JSON/BodyRequest/" + images);
+    }
+
+    @Step("Put update user with id_class not registered")
+    public void UpdateUserUnregisteredIDClass(int id, int id_class){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("id_class", id_class);
+    }
+
+    @Step("Put update user with empty all data")
+    public void UpdateUserEmptyAllData(int id, String name, String email, String password, String images, int id_class){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+TokenAdmin).log().all()
+                .pathParam("id",id)
+                .contentType("multipart/form-data")
+                .multiPart("name", name)
+                .multiPart("email", email)
+                .multiPart("password", password)
+                .multiPart("images", " " + images)
+                .multiPart("id_class", id_class);
+            }
+
+
+
 
 
 
