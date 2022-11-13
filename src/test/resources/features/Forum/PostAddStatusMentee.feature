@@ -1,4 +1,4 @@
-Feature: Get All Status
+Feature: Post Add New Status
   Background: Login As A Mentee
     Given User login as a mentee with valid data
     When Send request post login as a mentee
@@ -6,7 +6,7 @@ Feature: Get All Status
 
   @Tamara #AddStatus_001
   Scenario: Post add status using valid data with authorization
-    Given Post add status with set request body caption "Bagaimana hari ini" and images "testImageValid.PNG"
+    Given Post add status with set request body caption "Bagaimana malam ini" and images "testImageValid.PNG"
     When Send request post add status
     Then Should return status code 201 created
 
@@ -35,14 +35,22 @@ Feature: Get All Status
     Then Should return status code 400 Bad request
 
   @Tamara #AddStatus_006
-  Scenario: Post add status with invalid images extention
-    Given Post add status with set request body caption "Testing hari ini" and images "testImageInvalid.jpg"
+  Scenario: Post add status with invalid images extension
+    Given Post add status with set request body caption "Testing hari ini" and images "testFileValid.pdf"
     When Send request post add status
     Then Should return status code 400 Bad request
 
   @Tamara #AddStatus_007
   Scenario: Post add status with empty images
-    Given Post add status with set request body caption "dag dig dug" and images " "
+    Given Post add status with set request body caption "dag dig dug"
+    When Send request post add status
+    Then Should return status code 201 created
+
+
+  @Tamara #AddStatus_007 #BUG
+  Scenario: Post add status with more than max image size
+    Given Post add status with set request body caption "Testing hari ini" and images "testImageInvalid.jpg"
     When Send request post add status
     Then Should return status code 400 Bad request
+
 

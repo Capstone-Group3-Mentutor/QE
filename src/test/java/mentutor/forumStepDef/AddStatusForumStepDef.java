@@ -31,4 +31,9 @@ public class AddStatusForumStepDef {
     public void postAddStatusWithSetRequestBodyCaptionAndImages(int caption, String images) {
         forumAPI.addStatusNumericCaption(caption, images);
     }
+
+    @Given("Post add status with set request body caption {string}")
+    public void postAddStatusWithSetRequestBodyCaption(String caption) {
+        forumAPI.addStatusWithoutImages(caption);
+    }
 }

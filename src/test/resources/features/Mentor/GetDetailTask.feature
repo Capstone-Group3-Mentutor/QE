@@ -9,7 +9,7 @@ Feature: Update Mentor Profile
     When User send request get detail task
     Then Should return 201 Created
   @negative
-#    BUG
+#    BUG RC
   Scenario: Get task with invalid task id
     Given Mentor set task id to "test"
     When User send request get detail task

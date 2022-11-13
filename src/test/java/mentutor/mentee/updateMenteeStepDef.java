@@ -17,20 +17,28 @@ public class updateMenteeStepDef {
     public void menteeSetUpdateProfileDataWithNumericName(String name) {
         String email = "";
         String Password = "";
-        String images = "";
-//        File json = new File(LoginAPI.JSON_FILE+"/UpdateMentorProfile/PutUpdateProfileMentorWithValidData.json");
-        LoginAPI.setUpdateMentorProfile( name, email, Password, images);
+        LoginAPI.setUpdateMentorProfileWithoutImages( name, email, Password);
     }
 
     @Given("Mentee set update profile data with email {string}")
-    public void menteeSetUpdateProfileDataWithEmail(String arg0) {
+    public void menteeSetUpdateProfileDataWithEmail(String email) {
+        String name = "";
+        String Password = "";
+        LoginAPI.setUpdateMentorProfileWithoutImages( name, email, Password);
     }
 
     @Given("Mentee set update profile data with password {string}")
-    public void menteeSetUpdateProfileDataWithPassword(String arg0) {
+    public void menteeSetUpdateProfileDataWithPassword(String Password) {
+        String name = "";
+        String email = "";
+        LoginAPI.setUpdateMentorProfileWithoutImages( name, email, Password);
     }
 
     @Given("Mentee set update profile data with images {string}")
-    public void menteeSetUpdateProfileDataWithImages(String arg0) {
+    public void menteeSetUpdateProfileDataWithImages(String images) {
+        String name = "";
+        String Password = "";
+        String email = "";
+        LoginAPI.setUpdateMentorProfile( name, email, Password, images);
     }
 }

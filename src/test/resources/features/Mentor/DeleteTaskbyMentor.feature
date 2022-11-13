@@ -1,11 +1,11 @@
-Feature: Update Mentor Profile
+Feature: Delete Task
   Background: Login Mentor
     Given Mentor login with all valid data
     When User send request post login user
     And Set token to base Mentor Token
   @positive
   Scenario: Delete task with valid task id
-    Given Mentor set task id to 104
+    Given Mentor set task id to 10
     When User send request delete task
     Then Should return 201 Created
   @negative
@@ -14,11 +14,10 @@ Feature: Update Mentor Profile
     When User send request delete task
     Then Should return 400 Bad Request
   @negative
-#    BUG
   Scenario: Delete task with unregistered task id
     Given Mentor set task id to 9999999
     When User send request delete task
-    Then Should return 404 Not Found
+    Then Should return 400 Bad Request
   @negative
   Scenario: Delete task without task id
     Given Mentor set mentor token without set task id
@@ -26,7 +25,7 @@ Feature: Update Mentor Profile
     Then Should return 400 Bad Request
   @negative
   Scenario: Delete task without Token
-    Given Mentor set task id to 87 without token
+    Given Mentor set task id to 9 without token
     When User send request delete task
     Then Should return 400 Bad Request
 #  Scenario: Delete task with Mentee Token

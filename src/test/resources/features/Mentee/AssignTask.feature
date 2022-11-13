@@ -5,7 +5,7 @@ Feature: AssignTask
     And Set token to base Mentee Token
   @positive
   Scenario: Assign task with valid task id and valid file data
-    Given User set task id to 3 and file "testFileValid.pdf"
+    Given User set task id to 11 and file "testFileValid.pdf"
     When User send request post submit task
     Then Should return 201 Created
   Scenario: Assign task with invalid task id and valid file data
@@ -17,15 +17,15 @@ Feature: AssignTask
     When User send request post submit task
     Then Should return 400 Bad Request
   Scenario: Assign task with valid task id and invalid file data
-    Given User set task id to 88 and file "testImageValid.PNG"
+    Given User set task id to 12 and file "testImageValid.PNG"
     When User send request post submit task
     Then Should return 400 Bad Request
   Scenario: Assign task with valid task id and big file size
-    Given User set task id to 88 and file "testFileInvalid.pdf"
+    Given User set task id to 12 and file "testFileInvalid.pdf"
     When User send request post submit task
     Then Should return 400 Bad Request
   Scenario: Assign task without Token
-    Given User set task id to 88 and file "testFileValid.pdf" without token
+    Given User set task id to 12 and file "testFileValid.pdf" without token
     When User send request post submit task
     Then Should return 400 Bad Request
 #  Scenario: Assign task with Mentor Token
