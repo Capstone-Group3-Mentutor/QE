@@ -20,7 +20,7 @@ public class UpdateClassStefDef {
 
     @When("Send request put update class")
     public void sendRequestPutUpdateClass() {
-        SerenityRest.when().get(AdminAPI.UPDATE_CLASS);
+        SerenityRest.when().put(AdminAPI.UPDATE_CLASS);
     }
 
     @Given("Put update class with id {int} and set status {string}")
@@ -28,7 +28,7 @@ public class UpdateClassStefDef {
         adminAPI.UpdateClassValidStatus(id, status);
     }
 
-    @Given("Put update class with id {int} unauthorization")
+    @Given("Put update class with id {int} unAuthorization")
     public void putUpdateClassWithIdIdUnauthorization(int id) {
         File json = new File(AdminAPI.JSON_FILE+"/PutUpdateClassWithoutAuth.json");
         adminAPI.UpdateClassWithoutAuth(id,json);

@@ -11,7 +11,7 @@ Feature: Delete a class
     Then Should return status code 200 OK
     Examples:
     | id |
-    | 10 |
+    | 21 |
 
   @Tamara #DeleteClass_002
   Scenario Outline: Delete Exiting Class without Authorized
@@ -20,7 +20,7 @@ Feature: Delete a class
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 10 |
+      | 19 |
 
   @Tamara #DeleteClass_003
   Scenario Outline: Delete Exiting Class With Unregistered Id

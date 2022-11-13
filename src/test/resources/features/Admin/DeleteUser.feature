@@ -11,7 +11,7 @@ Feature: Delete User Account
     Then Should return status code 200 OK
     Examples:
       | id |
-      | 11  |
+      | 26  |
 
   @Tamara #DeleteUser_002
   Scenario Outline: Delete User Account without Authorized

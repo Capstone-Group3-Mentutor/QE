@@ -1,7 +1,9 @@
 package mentutor.mentee;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import mentutor.login.base.SetBaseLogin;
+import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 
 public class updateMenteeStepDef {
@@ -40,5 +42,14 @@ public class updateMenteeStepDef {
         String Password = "";
         String email = "";
         LoginAPI.setUpdateMentorProfile( name, email, Password, images);
+    }
+
+    @And("Reset mentee profile")
+    public void resetMenteeProfile() {
+        String name = "Bismillah bener";
+        String email = "setmentee@gmail.com";
+        String password = "Admin123$";
+        LoginAPI.setResetUserData(name,email, password);
+        SerenityRest.when().put(SetBaseLogin.UPDATE_USER_PROFILE);
     }
 }

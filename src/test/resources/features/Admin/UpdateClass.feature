@@ -24,7 +24,7 @@ Feature: Update Class
 
   @Tamara #UpdateClass_003
   Scenario Outline: Put update class without authorization
-    Given Put update class with id <id> unauthorization
+    Given Put update class with id <id> unAuthorization
     When Send request put update class
     Then Should return status code 400 Bad request
     Examples:
@@ -44,7 +44,7 @@ Feature: Update Class
   Scenario Outline: Put Update with Numeric Class Name in Body JSON
     Given Put update class with id <id> and class_name 654321
     When Send request put update class
-    Then Should return status code 201 created
+    Then Should return status code 400 Bad request
     Examples:
       | id |
       | 11 |

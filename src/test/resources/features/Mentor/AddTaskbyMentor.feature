@@ -9,8 +9,8 @@ Feature: Add Task by Mentor
     When User send request post create task
     Then Should return 201 Created
     Examples:
-      | Title          | Description   | Images            | File              | Time        |
-      | percobaan malam senin  | matematika    | testImageValid.PNG| testFileValid.pdf | 2024-11-05  |
+      | Title       | Description   | Images            | File              | Time        |
+      | otw subuh   | matematika    | testImageValid.PNG| testFileValid.pdf | 2024-11-05  |
   @positive
   Scenario Outline: Create Task with numeric title
     Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"

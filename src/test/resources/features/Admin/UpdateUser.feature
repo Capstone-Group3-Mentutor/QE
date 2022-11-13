@@ -11,7 +11,7 @@ Feature: Update User
     Then Should return status code 201 created
     Examples:
       | id | name | email | password | images | id_class |
-      | 1009 | Tuti Astuti | tuti.tutut@gmail.com | Tuti123$ | testImageValid.PNG | 2 |
+      | 17 | Tuti Astuti | tuti.tutut@gmail.com | Tuti123$ | testImageValid.PNG | 2 |
 
   @Tamara #UpdateUser_002
   Scenario Outline: Put update user with all valid data and unauthorization
@@ -20,7 +20,7 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id | name | email | password | images | id_class |
-      | 1009 | Tuti Astuti | tuti.tutut@gmail.com | Tuti123$ | testImageValid.PNG | 2 |
+      | 17 | Tuti Astuti | tuti.tutut@gmail.com | Tuti123$ | testImageValid.PNG | 2 |
 
   @Tamara #UpdateUser_003
   Scenario Outline: Put update user with input numeric name
@@ -29,7 +29,7 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 1009 |
+      | 17 |
 
   @Tamara #UpdateUser_004
   Scenario Outline: Put update user with input special char name
@@ -38,7 +38,7 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 1009 |
+      | 17 |
 
   @Tamara #UpdateUser_005
   Scenario Outline: Put update user with invalid email
@@ -47,9 +47,9 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id | email |
-      | 1009 | cecilia.updategmail.com |
-      | 1009 | cecilia.update@gmailcom |
-      | 1009 | CECILIA>UPDATE@GMAIL.COM|
+      | 17 | cecilia.updategmail.com |
+      | 17 | cecilia.update@gmailcom |
+#      | 17 | CECILIA>UPDATE@GMAIL.COM|
 
   @Tamara #UpdateUser_006
   Scenario Outline: Put update user with numeric password
@@ -58,7 +58,7 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 1009 |
+      | 17 |
 
   @Tamara #UpdateUser_007
   Scenario Outline: Put update user with invalid password
@@ -67,9 +67,9 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id | password |
-      | 1009 | ceciliatester |
-      | 1009 | @$%^&@*# |
-      | 1009 | Cecil1$ |
+      | 17 | ceciliatester |
+      | 17 | @$%^&@*# |
+      | 17 | Cecil1$ |
 
   @Tamara #UpdateUser_008
   Scenario Outline: Put update user with invalid images extention
@@ -78,7 +78,7 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id | file |
-      | 1009 | testImageInvalid.jpg |
+      | 17 | testImageInvalid.jpg |
 
   @Tamara #UpdateUser_009
   Scenario Outline: Put update user with id_class not registered
@@ -87,11 +87,11 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 1009 |
+      | 17 |
 
   @Tamara #UpdateUser_010
   Scenario: Put update user with all empty data in body JSON
-    Given Update user with id 1009 set request empty body name " ", email " ", password " ", images " " and id_class 0
+    Given Update user with id 17 set request empty body name " ", email " ", password " ", images " " and id_class 0
     When Send request put update user
     Then Should return status code 400 Bad request
 

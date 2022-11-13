@@ -297,9 +297,11 @@ public class AdminAPI {
 
     @Step("Put update class with valid status")
     public void UpdateClassValidStatus(int id, String status){
+        String class_name = "Bahasa jerman";
         SerenityRest.given()
                 .headers("Authorization","Bearer "+TokenAdmin).log().all()
                 .pathParam("id",id)
+                .multiPart("class_name",class_name)
                 .multiPart("status", status);
     }
 
