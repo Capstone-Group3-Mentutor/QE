@@ -10,12 +10,10 @@ import java.io.File;
 public class updateTaskStepDef {
     @Steps
     SetBaseLogin LoginAPI;
-    testMentorAPI MentorAPI;
-    @Given("Mentor set update task data with id {} Title {string}, Description {string}, Time {string}")
-    public void mentorSetUpdateTaskDataWithTitleDescriptionTime( int id, String title, String description, String time) {
-        LoginAPI.setUpdateTask(id, title, description, time);
-
-    }
+//    @Given("Mentor set update task data with id {} Title {string}, Description {string}, Time {string}")
+//    public void mentorSetUpdateTaskDataWithTitleDescriptionTime( int id, String title, String description, String time) {
+//        LoginAPI.setUpdateTask(id, title, description, time);
+//    }
 
     @When("User send request put update task")
     public void userSendRequestPutUpdateTask() {

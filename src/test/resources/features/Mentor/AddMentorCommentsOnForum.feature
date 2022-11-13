@@ -8,7 +8,8 @@ Feature: Add Mentor Comment
   Given User set forum id to 1 and comment "Tolong lah"
   When User send request post add comment
   Then Should return 201 Created
-      @negative
+    @negative
+#      BUG
   Scenario: Add mentor comment with invalid forum id and valid caption
     Given User set forum id to "test" and comment "saya sih yes"
     When User send request post add comment

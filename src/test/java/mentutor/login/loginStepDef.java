@@ -19,15 +19,15 @@ public class loginStepDef {
 
     @Steps
     SetBaseLogin LoginAPI;
-    @Given("User login with all valid data")
-    public void userLoginWithAllValidData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithValidData.json");
-        LoginAPI.setLoginUser(json);
+    @Given("User login with email {string} and password {string}")
+    public void userLoginWithAllValidData(String email, String password) {
+        LoginAPI.setLoginUser(email, password);
     }
     @Given("Mentor login with all valid data")
     public void mentorLoginWithAllValidData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentor.json");
-        LoginAPI.setLoginUser(json);
+        String email = "setmentor@gmail.com";
+        String password = "Admin123$";
+        LoginAPI.setLoginUser(email, password);
 
     }
 
@@ -45,70 +45,18 @@ public class loginStepDef {
                 .body(LoginResponses.ROLE,equalTo(role));
     }
 
-    @Given("Admin register new mentor")
-    public void adminRegisterNewMentor() {
-//        SerenityRest.get().body(LoginResponses.TOKEN);
-        File json = new File(LoginAPI.JSON_FILE+"/Login/PostNewPostWithValidUserId.json");
-        LoginAPI.setRegisterNewUser(json);
-    }
-
-    @When("Admin send request post new user")
-    public void adminSendRequestPostNewUser() {
-        SerenityRest.when().post(LoginAPI.REGISTER_NEW_USER);
-    }
-
-
-
-
-
-
-
-
-
-//    @And("Add foto")
-//    public void addFoto() {
+//    @Given("Admin register new mentor")
+//    public void adminRegisterNewMentor() {
+//
+////        SerenityRest.get().body(LoginResponses.TOKEN);
+//        File json = new File(LoginAPI.JSON_FILE+"/Login/PostNewPostWithValidUserId.json");
+//        LoginAPI.setRegisterNewUser(json);
 //    }
-    @Given("User set login data wit unregistered email")
-    public void userSetLoginDataWitUnregisteredEmail() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithUnregisteredEmail.json");
-        LoginAPI.setLoginUser(json);
-    }
 
-    @Given("User login with invalid email")
-    public void userLoginWithInvalidEmail() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithInvalidEmail.json");
-        LoginAPI.setLoginUser(json);
-    }
-
-    @Given("User login with invalid Password")
-    public void userLoginWithInvalidPassword() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithInvalidPassword.json");
-        LoginAPI.setLoginUser(json);
-    }
-
-    @Given("User login with all invalid data")
-    public void userLoginWithAllInvalidData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithAllInvalidData.json");
-        LoginAPI.setLoginUser(json);
-    }
-
-    @Given("User login with empty email")
-    public void userLoginWithEmptyEmail() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithEmptyEmail.json");
-        LoginAPI.setLoginUser(json);
-    }
-
-    @Given("User login with empty password")
-    public void userLoginWithEmptyPassword() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithEmptyDassword.json");
-        LoginAPI.setLoginUser(json);
-    }
-
-    @Given("User login with all empty data")
-    public void userLoginWithAllEmptyData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Login/LoginUserWithAllEmptyData.json");
-        LoginAPI.setLoginUser(json);
-    }
+//    @When("Admin send request post new user")
+//    public void adminSendRequestPostNewUser() {
+//        SerenityRest.when().post(LoginAPI.REGISTER_NEW_USER);
+//    }
 
     @And("Response body massage is {string}")
     public void responseBodyMassageIs(String response) {
@@ -123,22 +71,22 @@ public class loginStepDef {
     }
     @Given("Mentee login with all valid data")
     public void menteeLoginWithAllValidData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentee.json");
-        LoginAPI.setLoginUser(json);
-    }
-    @And("Reset Mentor data")
-    public void resetMentorData() {
-        int id = 1010;
-        String email = "testerqulity@gmail.com";
+        String email = "setmentee@gmail.com";
         String password = "Admin123$";
+        LoginAPI.setLoginUser(email, password);
+    }
+//    @And("Reset Mentor data")
+//    public void resetMentorData() {
+//        int id = 1010;
+//        String email = "testerqulity@gmail.com";
+//        String password = "Admin123$";
+////        SerenityRest.when().post(LoginAPI.LOGIN_USER);
+////        LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
+//        LoginAPI.setResetUserData(id, email, password);
+//    }
+//    @When("Admin set admin token")
+//    public void adminSetAdminToken() {
 //        SerenityRest.when().post(LoginAPI.LOGIN_USER);
 //        LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
-        LoginAPI.setResetUserData(id, email, password);
-    }
-
-    @When("Admin set admin token")
-    public void adminSetAdminToken() {
-        SerenityRest.when().post(LoginAPI.LOGIN_USER);
-        LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
-    }
+//    }
 }
