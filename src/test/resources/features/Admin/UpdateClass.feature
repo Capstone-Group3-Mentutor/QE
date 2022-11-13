@@ -6,12 +6,12 @@ Feature: Register New User
 
   @Tamara #UpdateClass_001
   Scenario Outline: Put update class with valid class_name
-    Given Put update class with id <id> and set class_name "Bahasa Jerman"
+    Given Put update class with id <id> and set class_name "Bahasa kalbu"
     When Send request put update class
     Then Should return status code 201 created
     Examples:
       | id |
-      | 41 |
+      | 11 |
 
   @Tamara #UpdateClass_002
   Scenario Outline: Put update class with valid status
@@ -20,7 +20,7 @@ Feature: Register New User
     Then Should return status code 201 created
     Examples:
       | id |
-      | 41 |
+      | 11 |
 
   @Tamara #UpdateClass_003
   Scenario Outline: Put update class without authorization
@@ -29,7 +29,7 @@ Feature: Register New User
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 41 |
+      | 11 |
 
   @Tamara #UpdateClass_004
   Scenario Outline: Put update class with all data empty in body JSON
@@ -38,7 +38,7 @@ Feature: Register New User
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 41 |
+      | 11 |
 
   @Tamara #UpdateClass_005
   Scenario Outline: Put Update with Numeric Class Name in Body JSON
@@ -47,7 +47,7 @@ Feature: Register New User
     Then Should return status code 201 created
     Examples:
       | id |
-      | 41 |
+      | 11 |
 
   @Tamara #UpdateClass_006
   Scenario Outline: Put Update with Special char in Body JSON
@@ -56,7 +56,7 @@ Feature: Register New User
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 41 |
+      | 11 |
 
 #  @Tamara #UpdateClass_007
 #  Scenario Outline: Put Update with Class Name more than max character in Body JSON
@@ -74,7 +74,7 @@ Feature: Register New User
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 41 |
+      | 11 |
 
   @Tamara #UpdateClass_009
   Scenario Outline: Put Update with Special Char Status in Body JSON
@@ -83,7 +83,7 @@ Feature: Register New User
     Then Should return status code 400 Bad request
     Examples:
       | id |
-      | 41 |
+      | 11 |
 
 
 

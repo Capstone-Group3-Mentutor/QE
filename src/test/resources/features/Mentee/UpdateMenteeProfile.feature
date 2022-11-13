@@ -6,7 +6,7 @@ Feature: Update Mentee Profile
     And Set token to base Mentor Token
 
   Scenario: Update profile Mentee with all valid data
-    Given Mentee set update profile data with Name "Jangan Dihapus", Email "jago.tester@gmail.com", Password "Admin123$", images "testImageInvalid.jpg"
+    Given Mentee set update profile data with Name "Base Mentee", Email "setmentee@gmail.com", Password "Admin123$", images "testImageInvalid.jpg"
     When User send request put update data
     Then Should return 201 Created
   Scenario: Update name Mentee with Numeric
@@ -29,10 +29,7 @@ Feature: Update Mentee Profile
     When User send request put update data
     Then Should return 400 Bad Request
 
-  Scenario: Update email Mentee without '.'
-    Given Mentee set update profile data with email "joni@gmailcom"
-    When User send request put update data
-#    Then Should return 400 Bad Request
+
 
   Scenario: Update email Mentee with full numeric email address
     Given Mentee set update profile data with email "214124"
@@ -45,7 +42,7 @@ Feature: Update Mentee Profile
     Then Should return 400 Bad Request
 
   Scenario:  Update email Mentee with capital email address
-    Given Mentee set update profile data with email "TESTERQUALITY@gmail.com"
+    Given Mentee set update profile data with email "SETMENTEE@gmail.com"
     When User send request put update data
     Then Should return 201 Created
 
@@ -54,10 +51,10 @@ Feature: Update Mentee Profile
     When User send request put update data
     Then Should return 400 Bad Request
 
-  Scenario:  Update password Mentee space ( ) char
-    Given Mentee set update profile data with password "Admin 123$"
-    When User send request put update data
-    Then Should return 201 Created
+#  Scenario:  Update password Mentee space ( ) char
+#    Given Mentee set update profile data with password "Admin 123$"
+#    When User send request put update data
+#    Then Should return 201 Created
 
   Scenario:  Update password Mentee with numeric only
     Given Mentee set update profile data with password "24561233"
@@ -93,6 +90,10 @@ Feature: Update Mentee Profile
     When User send request put update data
     Then Should return 400 Bad Request
 
+  Scenario: Update email Mentee without '.'
+    Given Mentee set update profile data with email "joni@gmailcom"
+    When User send request put update data
+    Then Should return 400 Bad Request
 #  Scenario: Update profile Mentee with Admin token
 #    Given Mentee set update profile data with Admin token
 #    When User send request put update data

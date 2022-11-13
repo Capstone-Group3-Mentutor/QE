@@ -8,7 +8,7 @@ Feature: Update Mentor Profile
     And Set token to base Mentor Token
 
   Scenario: Update profile Mentor with all valid data
-    Given Mentor set update profile data with Name "Akunnya dihapus", Email "testerqulity@gmail.com", Password "Admin123$", images "testImageInvalid.jpg"
+    Given Mentor set update profile data with Name "Base Mentor", Email "setmentor@gmail.com", Password "Admin123$", images "testImageInvalid.jpg"
     When User send request put update data
     Then Should return 201 Created
 
@@ -32,10 +32,7 @@ Feature: Update Mentor Profile
     When User send request put update data
     Then Should return 400 Bad Request
 
-  Scenario: Update email Mentor without '.'
-    Given Mentor set update profile data with email "joni@gmailcom"
-    When User send request put update data
-#    Then Should return 400 Bad Request
+
 
   Scenario: Update email Mentor with full numeric email address
     Given Mentor set update profile data with email "214124"
@@ -48,7 +45,7 @@ Feature: Update Mentor Profile
     Then Should return 400 Bad Request
 
   Scenario:  Update email Mentor with capital email address
-    Given Mentor set update profile data with email "TESTERQUALITY@gmail.com"
+    Given Mentor set update profile data with email "SETMENTOR@gmail.com"
     When User send request put update data
     Then Should return 201 Created
 
@@ -57,10 +54,10 @@ Feature: Update Mentor Profile
     When User send request put update data
     Then Should return 400 Bad Request
 
-  Scenario:  Update password Mentor space ( ) char
-    Given Mentor set update profile data with password "Admin 123$"
-    When User send request put update data
-    Then Should return 201 Created
+#  Scenario:  Update password Mentor space ( ) char
+#    Given Mentor set update profile data with password "Admin 123$"
+#    When User send request put update data
+#    Then Should return 201 Created
 
   Scenario:  Update password Mentor with numeric only
     Given Mentor set update profile data with password "24561233"
@@ -93,6 +90,11 @@ Feature: Update Mentor Profile
     Then Should return 400 Bad Request
 
   Scenario:  Update profile Mentor with empty data
+    When User send request put update data
+    Then Should return 400 Bad Request
+
+  Scenario: Update email Mentor without '.'
+    Given Mentor set update profile data with email "joni@gmailcom"
     When User send request put update data
     Then Should return 400 Bad Request
 

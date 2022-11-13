@@ -12,7 +12,7 @@ Feature: Get Single User
     And Get single user with valid id json schema validator
     Examples:
     |id|
-    |9 |
+    |1005 |
 
   @Tamara #GetSingleUser_002
   Scenario Outline: Get Single User Using Valid Id User without Authorization
@@ -22,7 +22,7 @@ Feature: Get Single User
     And Get single user without authorization json schema validator
     Examples:
       |id|
-      |9 |
+      |1005 |
 
   @Tamara #GetSingleUser_003
   Scenario Outline: Get Single User with Unregistered Id User
@@ -53,5 +53,5 @@ Feature: Get Single User
     And Get single user with Id User has been Deleted json schema validator
     Examples:
       |id|
-      |5 |
+      |1007 |
 
