@@ -5,7 +5,8 @@ Feature: Get Detail Task by Mentor
     And Set token to base Mentor Token
   @positive
   Scenario: Get task with valid task id
-    Given Mentor set task id to 38
+    Given Mentor set task id to 11
+
     When User send request get detail task
     Then Should return 201 Created
   @negative
@@ -13,7 +14,7 @@ Feature: Get Detail Task by Mentor
   Scenario: Get task with invalid task id
     Given Mentor set task id to "test"
     When User send request get detail task
-    Then Should return 400 Bad Request
+    Then Should return 404 Not Found
   @negative
   Scenario: Get task with unregistered task id
     Given Mentor set task id to 999999999
@@ -23,6 +24,6 @@ Feature: Get Detail Task by Mentor
 #  Scenario: Get detail task with valid task id with Admin Token
   @negative
   Scenario: Get detail task with valid task id without Token
-    Given Mentor set task id to 25 without token
+    Given Mentor set task id to 11 without token
     When User send request get detail task
     Then Should return 400 Bad Request

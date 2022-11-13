@@ -51,6 +51,7 @@ Feature: Update User
       | 17 | tatiana.update@gmailcom |
 
 
+
   @Tamara #UpdateUser_006
   Scenario Outline: Put update user with numeric password
     Given Put update user with id <id> and set password 12345678

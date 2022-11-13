@@ -6,14 +6,14 @@ Feature: Register New Class
 
   @Tamara #RegisterNewClass_001
   Scenario: Post create new class using valid data with authorization
-    Given Admin create new class with class_name "Bahasa Taiwan"
+    Given Admin create new class with class_name "Bahasa buah"
     When Send request post create new class
     Then Should return status code 201 created
 #    And Post create new user json schema validator
 
   @Tamara #RegisterNewClass_002
   Scenario: Post create new class using valid data without authorization
-    Given Admin create new class class_name "Bahasa Portugal" without authorization
+    Given Admin create new class class_name "Bahasa ayam" without authorization
     When Send request post create new class
     Then Should return status code 400 Bad request
 #    And Post create new user json schema validator

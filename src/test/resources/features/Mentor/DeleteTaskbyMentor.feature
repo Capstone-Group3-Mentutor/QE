@@ -5,7 +5,7 @@ Feature: Delete Task
     And Set token to base Mentor Token
   @positive
   Scenario: Delete task with valid task id
-    Given Mentor set task id to 30
+    Given Mentor set task id to 42
     When User send request delete task
     Then Should return 201 Created
   @negative
@@ -25,7 +25,7 @@ Feature: Delete Task
     Then Should return 400 Bad Request
   @negative
   Scenario: Delete task without Token
-    Given Mentor set task id to 9 without token
+    Given Mentor set task id to 43 without token
     When User send request delete task
     Then Should return 400 Bad Request
 #  Scenario: Delete task with Mentee Token
