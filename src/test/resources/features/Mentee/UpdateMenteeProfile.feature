@@ -2,7 +2,6 @@ Feature: Update Mentee Profile
   Background: Login Mentee
     Given Mentee login with all valid data
     When User send request post login user
-#    Then Should return 200 OK
     And Set token to base Mentor Token
 
   Scenario: Update profile Mentee with all valid data
@@ -29,8 +28,6 @@ Feature: Update Mentee Profile
     When User send request put update data
     Then Should return 400 Bad Request
 
-
-
   Scenario: Update email Mentee with full numeric email address
     Given Mentee set update profile data with email "214124"
     When User send request put update data
@@ -51,11 +48,6 @@ Feature: Update Mentee Profile
     When User send request put update data
     Then Should return 400 Bad Request
 
-#  Scenario:  Update password Mentee space ( ) char
-#    Given Mentee set update profile data with password "Admin 123$"
-#    When User send request put update data
-#    Then Should return 201 Created
-
   Scenario:  Update password Mentee with numeric only
     Given Mentee set update profile data with password "24561233"
     When User send request put update data
@@ -74,7 +66,7 @@ Feature: Update Mentee Profile
   Scenario:  Update Password Mentee with more than maximal character
     Given Mentee set update profile data with password "jangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusing"
     When User send request put update data
-    Then Should return 201 Created
+    Then Should return 400 Bad Request
 
   Scenario:  Update Password Mentee with less than minimum character
     Given Mentee set update profile data with password "T3$t"
@@ -94,6 +86,11 @@ Feature: Update Mentee Profile
     Given Mentee set update profile data with email "joni@gmailcom"
     When User send request put update data
     Then Should return 400 Bad Request
+
+    Scenario:  Update password Mentee space ( ) char
+    Given Mentee set update profile data with password "Admin 123$"
+    When User send request put update data
+    Then Should return 201 Created
 #  Scenario: Update profile Mentee with Admin token
 #    Given Mentee set update profile data with Admin token
 #    When User send request put update data

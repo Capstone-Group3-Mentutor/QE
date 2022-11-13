@@ -48,19 +48,51 @@ public class SetBaseLogin {
                 .contentType("multipart/form-data")
                 .multiPart("name", name)
                 .multiPart("email", email)
-                .multiPart("email", password)
+                .multiPart("password", password)
                 .multiPart("images", new File (UPLOAD +images))
+                .log().all();
+    }
+    public void setUpdateMentorProfileWithoutImages( String name, String email, String password){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+                .contentType("multipart/form-data")
+                .multiPart("name", name)
+                .multiPart("email", email)
+                .multiPart("password", password)
                 .log().all();
     }
     @Step ("Create new Task")
     public void setCreateNewTask(String title, String description,String images, String file, String time){
-        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
-                .contentType("multipart/form-data")
-                .multiPart("title", title)
-                .multiPart("description", description)
-                .multiPart("images", new File (UPLOAD +images))
-                .multiPart("file", new File (UPLOAD +file))
-                .multiPart("due_date", time);
+
+            SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
+                    .contentType("multipart/form-data")
+                    .multiPart("title", title)
+                    .multiPart("description", description)
+                    .multiPart("images", new File (UPLOAD +images))
+                    .multiPart("file", new File (UPLOAD +file))
+                    .multiPart("due_date", time);
+
+    }
+    public void setCreateNewIncompleteTask(String title, String description,String images, String file, String time) {
+        if (images == null){
+            SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
+                    .contentType("multipart/form-data")
+                    .multiPart("title", title)
+                    .multiPart("description", description)
+                    .multiPart("file", new File (UPLOAD +file))
+                    .multiPart("due_date", time);
+        } else if (file == null) {
+            SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all()
+                    .contentType("multipart/form-data")
+                    .multiPart("title", title)
+                    .multiPart("description", description)
+                    .multiPart("images", new File (UPLOAD +images))
+                    .multiPart("due_date", time);
+        }
+    }
+        public void setCreateNewEmptyTask(){
+        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN).log().all();
+
     }
     @Step ("Create new Task")
     public void setCreateNewTaskWithoutToken(String title, String description,String images, String file, String time){

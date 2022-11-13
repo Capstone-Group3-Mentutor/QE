@@ -70,8 +70,8 @@ Feature: Login All users
     When User send request post login user
     Then Should return 400 Bad Request
     Examples:
-      |email                    |passowrd   |
-      |admin.mentutor@gmail.com |Admin123$  |
+      |email|passowrd|
+      |     |        |
   #    And Response body should contain id user 1, name "Admin", email "admin.mentutor@gmail.com", class "" and role "admin"
 #    And Response body massage error is "user not found"
 #    And Response body massage error is "Invalid Input From Client"

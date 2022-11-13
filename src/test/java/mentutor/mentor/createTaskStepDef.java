@@ -22,4 +22,14 @@ public class createTaskStepDef {
     public void mentorSetCreateTaskDataWithTitleDescriptionImagesFileTimeWithoutToken(String title, String description, String images, String file, String time) {
         LoginAPI.setCreateNewTaskWithoutToken(title, description,images,file, time);
     }
+
+    @Given("Mentor set create task data with empty Title {string}, Description {string},Images {string},File {string}, Time {string}")
+    public void mentorSetCreateTaskDataWithEmptyTitleDescriptionImagesFileTime(String title, String description, String images, String file, String time) {
+        LoginAPI.setCreateNewEmptyTask();
+    }
+
+    @Given("Mentor set create task incomplete data with Title {string}, Description {string},Images {string},File {string}, Time {string}")
+    public void mentorSetCreateTaskIncompleteDataWithTitleDescriptionImagesFileTime(String title, String description, String images, String file, String time) {
+        LoginAPI.setCreateNewIncompleteTask(title, description,images,file, time);
+    }
 }
