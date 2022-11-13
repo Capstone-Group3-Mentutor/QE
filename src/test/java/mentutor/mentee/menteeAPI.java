@@ -27,8 +27,8 @@ public class menteeAPI {
     public void setAddComment(int forum, String comment){
         SerenityRest.given()
                 .headers("Authorization","Bearer "+ BARIER_TOKEN)
-                .pathParam("forum",forum)
-                .multiPart("caption", comment)
+                .pathParam("task",forum)
+                .multiPart("file", comment)
                 .log().all();
     }
 }
