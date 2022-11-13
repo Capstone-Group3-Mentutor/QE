@@ -27,8 +27,25 @@ public class updateTaskStepDef {
         LoginAPI.setGetDetailTask(task);
     }
 
-    @Given("Mentor set update task data id {string} with  Title {string}, Description {string}, Time {string}")
-    public void mentorSetUpdateTaskDataIdWithTitleDescriptionTime(String id, String title, String description, String time) {
-        LoginAPI.setUpdateTaskInvalid(id, title, description, time);
+    @Given("Mentor set update task data with Id {int}, Title {string}, Description {string},Images {string},File {string}, Time {string}")
+    public void mentorSetCreateTaskDataWithTitleDescriptionImagesFileTime(int id,String title, String description, String images, String file, String time) {
+        LoginAPI.setUpdateTaskID(id,title, description,images,file, time);
     }
+
+    @Given("Mentor set update task data with Id {string}, Title {string}, Description {string},Images {string},File {string}, Time {string}")
+    public void mentorSetUpdateTaskDataWithIdTitleDescriptionImagesFileTime(String id, String title, String description, String images, String file, String time) {
+        LoginAPI.setUpdateTaskInvalidId(id,title, description,images,file, time);
+    }
+
+    @Given("Mentor set update task data with Title {string}, Description {string},Images {string},File {string}, Time {string}")
+    public void mentorSetUpdateTaskDataWithTitleDescriptionImagesFileTime(String title, String description, String images, String file, String time) {
+        LoginAPI.setUpdateTaskWithoutId(title, description,images,file, time);
+    }
+
+    @Given("Mentor set update task data with Id {int}, Title {string}, Description {string},Images {string},File {string}, Time {string} without token")
+    public void mentorSetUpdateTaskDataWithIdTitleDescriptionImagesFileTimeWithoutToken(int id,String title, String description, String images, String file, String time) {
+        LoginAPI.setUpdateTaskWithoutToken(id,title, description,images,file, time);
+    }
+
+
 }

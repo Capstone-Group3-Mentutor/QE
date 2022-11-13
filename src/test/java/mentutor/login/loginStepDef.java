@@ -26,25 +26,12 @@ public class loginStepDef {
     }
     @Given("Mentor login with all valid data")
     public void mentorLoginWithAllValidData() {
-//        if(email==null){
-//            email="testerquality@gmail.com";
-//            password="Admin123$";
-//            HashMap<String, Object> json = new HashMap<String, Object>();
-//            String s1 = email;
-//            String s2 = password;
-//            json.put("email", s1);
-//            json.put("password", s2);
-//            SerenityRest.given()
-//                    .contentType("multipart/form-data")
-//                    .multiPart("email", email)
-//                    .multiPart("email", password);
-//        }
         File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentor.json");
         LoginAPI.setLoginUser(json);
 
     }
 
-    @When("Send request post login user")
+    @When("User send request post login user")
     public void sendRequestPostLoginUser() {
         SerenityRest.when().post(LoginAPI.LOGIN_USER);
     }
@@ -134,10 +121,24 @@ public class loginStepDef {
         SerenityRest.then()
                 .body(LoginResponses.ERROR_MESSAGE,equalTo(response));
     }
-
-    @Given("Admin reset Mentor data")
-    public void adminResetMentorData() {
-        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentor.json");
+    @Given("Mentee login with all valid data")
+    public void menteeLoginWithAllValidData() {
+        File json = new File(LoginAPI.JSON_FILE+"/Background/LoginMentee.json");
         LoginAPI.setLoginUser(json);
+    }
+    @And("Reset Mentor data")
+    public void resetMentorData() {
+        int id = 1010;
+        String email = "testerqulity@gmail.com";
+        String password = "Admin123$";
+//        SerenityRest.when().post(LoginAPI.LOGIN_USER);
+//        LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
+        LoginAPI.setResetUserData(id, email, password);
+    }
+
+    @When("Admin set admin token")
+    public void adminSetAdminToken() {
+        SerenityRest.when().post(LoginAPI.LOGIN_USER);
+        LoginAPI.BARIER_TOKEN = SerenityRest.then().extract().path("data.token");
     }
 }
