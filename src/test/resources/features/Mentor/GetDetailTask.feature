@@ -1,4 +1,4 @@
-Feature: Update Mentor Profile
+Feature: Get Detail Task by Mentor
   Background: Login Mentor
     Given Mentor login with all valid data
     When User send request post login user
@@ -6,6 +6,7 @@ Feature: Update Mentor Profile
   @positive
   Scenario: Get task with valid task id
     Given Mentor set task id to 11
+
     When User send request get detail task
     Then Should return 201 Created
   @negative

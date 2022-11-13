@@ -28,12 +28,6 @@ Feature: Update Mentee Profile
     Then Should return 400 Bad Request
     And Reset mentee profile
 
-  Scenario: Update email Mentee without '@'
-    Given Mentee set update profile data with email "jonigmail.com"
-    When User send request put update data
-    Then Should return 400 Bad Request
-    And Reset mentee profile
-
   Scenario: Update email Mentee with full numeric email address
     Given Mentee set update profile data with email "214124"
     When User send request put update data
@@ -105,7 +99,14 @@ Feature: Update Mentee Profile
     Then Should return 400 Bad Request
     And Reset mentee profile
 
-  Scenario:  Update password Mentee space ( ) char
+
+    # BUG
+  Scenario: Update email Mentee without '@'
+    Given Mentee set update profile data with email "jonigmail.com"
+    When User send request put update data
+    Then Should return 400 Bad Request
+
+    Scenario:  Update password Mentee space ( ) char
     Given Mentee set update profile data with password "Admin 123$"
     When User send request put update data
     Then Should return 201 Created
@@ -115,3 +116,5 @@ Feature: Update Mentee Profile
 #    Given Mentee set update profile data with Admin token
 #    When User send request put update data
 #    Then Should return 201 Created
+
+

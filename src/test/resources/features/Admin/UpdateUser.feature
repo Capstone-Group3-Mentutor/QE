@@ -11,7 +11,7 @@ Feature: Update User
     Then Should return status code 201 created
     Examples:
       | id | name | email | password | images | id_class |
-      | 17 | Tuti Astuti | tuti.tutut@gmail.com | Tuti123$ | testImageValid.PNG | 2 |
+      | 17 | Tati Astati | tati.tutut@gmail.com | Tuti123$ | testImageValid.PNG | 2 |
 
   @Tamara #UpdateUser_002
   Scenario Outline: Put update user with all valid data and unauthorization
@@ -20,7 +20,7 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id | name | email | password | images | id_class |
-      | 17 | Tuti Astuti | tuti.tutut@gmail.com | Tuti123$ | testImageValid.PNG | 2 |
+      | 17 | Tati Astati | tati.tutut@gmail.com | Tuti123$ | testImageValid.PNG | 2 |
 
   @Tamara #UpdateUser_003
   Scenario Outline: Put update user with input numeric name
@@ -47,9 +47,10 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id | email |
-      | 17 | cecilia.updategmail.com |
-      | 17 | cecilia.update@gmailcom |
-#      | 17 | CECILIA>UPDATE@GMAIL.COM|
+      | 17 | tatiana.updategmail.com |
+      | 17 | tatiana.update@gmailcom |
+
+
 
   @Tamara #UpdateUser_006
   Scenario Outline: Put update user with numeric password
@@ -78,7 +79,7 @@ Feature: Update User
     Then Should return status code 400 Bad request
     Examples:
       | id | file |
-      | 17 | testImageInvalid.jpg |
+      | 17 | testFileValid.pdf |
 
   @Tamara #UpdateUser_009
   Scenario Outline: Put update user with id_class not registered
@@ -90,9 +91,14 @@ Feature: Update User
       | 17 |
 
   @Tamara #UpdateUser_010
-  Scenario: Put update user with all empty data in body JSON
-    Given Update user with id 17 set request empty body name " ", email " ", password " ", images " " and id_class 0
+  Scenario Outline: Put update user with all empty data in body JSON
+    Given Update user with id 1005 set request empty body name "<name> ", email "<email> ", password "<password> ", images "<images>" and id_class 0
     When Send request put update user
     Then Should return status code 400 Bad request
+    Examples:
+    | name | email | password | images |
+    |      |       |          |        |
+
+
 
 

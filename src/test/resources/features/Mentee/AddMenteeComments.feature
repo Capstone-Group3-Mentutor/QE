@@ -9,10 +9,14 @@ Feature: Add Mentee Comment
     When User send request post add comment
     Then Should return 201 Created
   @negative
+    # BUG
   Scenario: Add Mentee comment with invalid forum id and valid caption
     Given User set forum id to "test" and comment "saya sih yes"
     When User send request post add comment
     Then Should return 400 Bad Request
+
+  @negative
+    # BUG
   Scenario: Add Mentee comment with unregistered forum  id and valid caption
     Given User set forum id to 9999999 and comment "saya sih yes"
     When User send request post add comment
@@ -29,6 +33,9 @@ Feature: Add Mentee Comment
     Given User set forum id to 1 and comment to 21.245
     When User send request post add comment
     Then Should return 201 Created
+
+  @negative
+    # BUG
   Scenario: Add Mentee comment with valid forum id and more than max caption char
     Given User set forum id to 1 and comment "asfdarewfvadgvaefraoicnasovhafhasocnaodivfnawpdijawspfcjapoifnaoisfnasvoinafoashas0ioasoidnasoidoioasijdaosidjasiojasdasdoiajdoiasjaiwporjaoiwdjasonaksdjapsiodjoaisndoasidjjdadjasoidjasdoinasoiasncoiisanfoaisjdaosidjaasdaroinsfciuasfaoisjdoaisdjasoidasoidjasoidjassidjasdachar"
     When User send request post add comment
@@ -37,6 +44,9 @@ Feature: Add Mentee Comment
     Given User set forum id to 1 and comment "!@$$%@%#$"
     When User send request post add comment
     Then Should return 201 Created
+
+  @negative
+    # BUG
   Scenario: Add Mentee comment with valid forum id and empty data
     Given User set forum id to 1
     When User send request post add comment
