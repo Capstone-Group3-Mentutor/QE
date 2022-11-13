@@ -5,7 +5,7 @@ Feature: Add Mentee Comment
     And Set token to base Mentee Token
   @positive
   Scenario: Add Mentee comment with valid forum id and valid caption
-    Given User set forum id to 1 and comment "dicoba deh"
+    Given User set forum id to 1 and comment "Sip deh"
     When User send request post add comment
     Then Should return 201 Created
   @negative

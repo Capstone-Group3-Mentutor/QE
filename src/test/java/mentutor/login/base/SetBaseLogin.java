@@ -49,7 +49,8 @@ public class SetBaseLogin {
                 .multiPart("name", name)
                 .multiPart("email", email)
                 .multiPart("email", password)
-                .multiPart("images","src/test/resources/features/" + images).log().all();
+                .multiPart("images","src/test/resources/features/" + images)
+                .log().all();
     }
     @Step ("Create new Task")
     public void setCreateNewTask(String title, String description,String images, String file, String time){
@@ -73,7 +74,14 @@ public class SetBaseLogin {
     }
     @Step ("Get All Task By Id Mentor")
     public void setGetAllTaskbyIDMentor(){
-        SerenityRest.given().headers("Authorization","Bearer "+ BARIER_TOKEN);
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN);
+    }
+    @Step("Get All Class Task")
+    public void setGetAllClassTask(){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+                .log().all();
     }
     @Step ("Get Detail Task with Task id")
     public void setGetDetailTask(int id){
@@ -257,6 +265,28 @@ public class SetBaseLogin {
                 .pathParam("id",id)
                 .multiPart("email", email)
                 .multiPart("password", password);
+    }
+    @Step ("Submit Score")
+    public void setSubmitTask(int task, String file){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+                .pathParam("task",task)
+                .multiPart("file","src/test/resources/JSON/BodyRequest/"+ file)
+                .log().all();
+    }
+    public void setSubmitTaskWithoutToken(int task, String file){
+        SerenityRest.given()
+                .pathParam("task",task)
+                .multiPart("file","src/test/resources/features/" + file)
+                .log().all();
+    }
+    @Step ("Submit Score")
+    public void setSubmitTaskinvalid(String task, String file){
+        SerenityRest.given()
+                .headers("Authorization","Bearer "+ BARIER_TOKEN)
+                .pathParam("task",task)
+                .multiPart("file","src/test/resources/features/" + file)
+                .log().all();
     }
 
 
