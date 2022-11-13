@@ -10,7 +10,7 @@ Feature: Add Task by Mentor
     Then Should return 201 Created
     Examples:
       | Title          | Description   | Images            | File              | Time        |
-      | percobaan aut  | matematika    | testImageValid.PNG| testFileValid.pdf | 2024-11-05  |
+      | percobaan malam senin  | matematika    | testImageValid.PNG| testFileValid.pdf | 2024-11-05  |
   @positive
   Scenario Outline: Create Task with numeric title
     Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
@@ -52,7 +52,7 @@ Feature: Add Task by Mentor
     Examples:
       | Title          | Description  | Images      | File       | Time       |
       | bilangan prima | !#@#@$#$#@   | testImageValid.PNG    | testFileValid.pdf  | 2022-11-05 |
-  @positive @negative
+  @negative
   Scenario Outline: Create Task with more than 255 character description
     Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
     When User send request post create task
@@ -98,22 +98,22 @@ Feature: Add Task by Mentor
       | bilangan prima | matematika   | testImageValid.PNG    | testFileValid.pdf   | 05-November-2023  |
   @negative
   Scenario Outline: Create Task with incomplete data
-    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    Given Mentor set create task incomplete data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
     When User send request post create task
     Then Should return 400 Bad Request
     Examples:
       | Title          | Description   | Images               | File               | Time       |
-      |                | matematika    | testImageValid.PNG   | testFileValid.pdf  | 2022-11-05 |
-      | bilangan prima |               | testImageValid.PNG   | testFileValid.pdf  | 2022-11-05 |
-      |                |               | testImageValid.PNG   | testFileValid.pdf  | 2022-11-05 |
+#      |                | matematika    | testImageValid.PNG   | testFileValid.pdf  | 2022-11-05 |
+#      | bilangan prima |               | testImageValid.PNG   | testFileValid.pdf  | 2022-11-05 |
+#      |                |               | testImageValid.PNG   | testFileValid.pdf  | 2022-11-05 |
       | bilangan prima | matematika    |                      | testFileValid.pdf  | 2022-11-05 |
-      | bilangan prima | matematika    | testImageValid.PNG   |                    | 2022-11-05 |
-      | bilangan prima | matematika    | testImageValid.PNG   | testFileValid.pdf  |            |
+#      | bilangan prima | matematika    | testImageValid.PNG   |                    | 2022-11-05 |
+#      | bilangan prima | matematika    | testImageValid.PNG   | testFileValid.pdf  |            |
 
 
   @negative
   Scenario Outline: Create Task with empty data
-    Given Mentor set create task data with Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
+    Given Mentor set create task data with empty Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
     When User send request post create task
     Then Should return 400 Bad Request
     Examples:

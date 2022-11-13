@@ -56,7 +56,7 @@ public class updateMentorProfileStepDef {
 
     @Given("Mentor set update profile data with Name {string}, Email {string}, Password {string}, images {string}")
     public void mentorSetUpdateProfileDataWithNameEmailPassword(String name, String email, String password, String images) {
-        LoginAPI.setUpdateMentorProfile( name, email, password, images);
+        LoginAPI.setUpdateMentorProfile(name, email, password, images);
     }
 
     @Given("Mentor set update profile data with images {string}")
@@ -68,17 +68,17 @@ public class updateMentorProfileStepDef {
         LoginAPI.setUpdateMentorProfile( name, email, password, images);
     }
 
-    @And("Reset mentor profile")
-    public void resetMentorProfile() {
-        String name = "Berhasil lah";
-        String images = "";
-        String email = "testerqulity@gmail.com";
-        String password = "Admin123$";
-        LoginAPI.setUpdateMentorProfile(name, email, password, images);
-        SerenityRest.when().put(mentorAPI.UPDATE_MENTOR_PROFILE);
-
-    }
-
+//    @And("Reset mentor profile")
+//    public void resetMentorProfile() {
+//        String name = "Berhasil lah";
+//        String images = "";
+//        String email = "testerqulity@gmail.com";
+//        String password = "Admin123$";
+//        LoginAPI.setUpdateMentorProfile(name, email, password, images);
+//        SerenityRest.when().put(mentorAPI.UPDATE_MENTOR_PROFILE);
+//
+//    }
+//
 
 //    @Given("Admin login")
 //    public void adminLogin() {

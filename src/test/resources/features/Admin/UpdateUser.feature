@@ -1,4 +1,4 @@
-Feature: Register New User
+Feature: Update User
   Background: Login Admin
     Given User login with valid data
     When Send request post login user

@@ -1,6 +1,6 @@
 Feature: Register New User
   Background: Login Admin
-    Given User login with all valid data
+    Given User login with valid data
     When Send request post login user
     And Set token to Admin Token
 
