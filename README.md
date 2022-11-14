@@ -13,8 +13,7 @@
 </div>
 
 
-
-Easy learning management and easy communication between academics will make a brighter future
+Mentutor hadir sebagai wadah untuk pengajar bisa memonitoring peserta didiknya baik dari pengumpulan tugas maupun dengan cara berdiskusi dengan peserta didik melalui forum yang disediakan. 
 
 
 
