@@ -9,7 +9,7 @@
 
 <!-- PROJECT LOGO -->
 
-<img src="logomentutor.PNG" alt="Logo" width="450" height="auto" />
+<img src="LogoMentutor.png" alt="Logo" width="450" height="auto" />
 </div>
 
 
