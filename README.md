@@ -63,18 +63,18 @@ Mentutor hadir sebagai wadah untuk pengajar bisa memonitoring peserta didiknya b
 
 - Anjar Tiyo Saputro :
 
-  [![GitHub](https://img.shields.io/badge/-Anjar-black?style=for-the-badge&logo=github&logoColor=white)]([https://github.com/AnjarTiyo)  [![LinkedIn](https://img.shields.io/badge/-Anjar-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anjartiyo/)
+  [![GitHub](https://img.shields.io/badge/-Anjar-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AnjarTiyo)  [![LinkedIn](https://img.shields.io/badge/-Anjar-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anjartiyo/)
 - Havid Nursahgandi :
 
-    [![GitHub](https://img.shields.io/badge/-Havid-black?style=for-the-badge&logo=github&logoColor=white)]([https://github.com/havidn)  [![LinkedIn](https://img.shields.io/badge/-Havid-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/havid-nursahgandi/)
+    [![GitHub](https://img.shields.io/badge/-Havid-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/havidn)  [![LinkedIn](https://img.shields.io/badge/-Havid-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/havid-nursahgandi/)
 
 - Tamara Rizki Amalia : 
   
-  [![GitHub](https://img.shields.io/badge/-Tamara-black?style=for-the-badge&logo=github&logoColor=white)]([https://github.com/amalliarizkii)  [![LinkedIn](https://img.shields.io/badge/-Tamara-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tamaraamalia20/)
+  [![GitHub](https://img.shields.io/badge/-Tamara-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/amalliarizkii)  [![LinkedIn](https://img.shields.io/badge/-Tamara-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tamaraamalia20/)
 
 - Ilham Syahrul : 
 
-  [![GitHub](https://img.shields.io/badge/-Ilham-black?style=for-the-badge&logo=github&logoColor=white)]([https://github.com/Ilhamsyhs)  [![LinkedIn](https://img.shields.io/badge/-Ilham-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ilhamsyahrulsa/)
+  [![GitHub](https://img.shields.io/badge/-Ilham-black?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ilhamsyhs)  [![LinkedIn](https://img.shields.io/badge/-Ilham-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ilhamsyahrulsa/)
   
   
   
