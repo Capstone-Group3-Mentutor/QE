@@ -48,7 +48,7 @@ Mentutor are present as a forum for teachers to monitor their students both from
 ## 📓 Documentation
 #### 👨‍🚀   [Postman Colection](https://www.postman.com/interstellar-space-651335/workspace/team-workspace)
 #### 👀   [Test Case API](https://docs.google.com/spreadsheets/d/1yvUPSNu_cFYeve4Y_bsnYWpGjRQqWCiKXkEB6yuAK0k/edit#gid=2117470798)
-#### 📝   [Test Automation Report](https://github.com/Capstone-Group3-Mentutor/QE-API-Report)
+#### 📝   [Test Automation Report](https://capstone-group3-mentutor.github.io/QE-API-Report)
 
 ## 🤝 Collaboration
 #### 👨‍💻 [Frontend team](https://github.com/Capstone-Group3-Mentutor/Front-End)
