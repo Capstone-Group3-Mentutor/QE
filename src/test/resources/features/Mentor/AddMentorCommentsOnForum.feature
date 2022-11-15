@@ -21,31 +21,28 @@ Feature: Add Mentor Comment
     Given User set forum id to 9999999 and comment "saya sih yes"
     When User send request post add comment
     Then Should return 404 Not Found
-#  Scenario: Add mentor comment without forum id and valid caption
-#    Given User set comment "saya sih yes"
-#    When User send request post add comment
-#    Then Should return 404 Not Found
+  @positive
   Scenario: Add mentor comment with valid forum id and int caption
     Given User set forum id to 1 and comment 2141512
     When User send request post add comment
     Then Should return 201 Created
+  @positive
   Scenario: Add mentor comment with valid forum id and float caption
     Given User set forum id to 1 and comment to 21.245
     When User send request post add comment
     Then Should return 201 Created
-
-  @negative
+  @positive
 #      BUG
   Scenario: Add mentor comment with valid forum id and more than max caption char
     Given User set forum id to 1 and comment "asfdarewfvadgvaefraoicnasovhafhasocnaodivfnawpdijawspfcjapoifnaoisfnasvoinafoashas0ioasoidnasoidoioasijdaosidjasiojasdasdoiajdoiasjaiwporjaoiwdjasonaksdjapsiodjoaisndoasidjjdadjasoidjasdoinasoiasncoiisanfoaisjdaosidjaasdaroinsfciuasfaoisjdoaisdjasoidasoidjasoidjassidjasdachar"
     When User send request post add comment
     Then Should return 201 Created
+  @positive
   Scenario: Add mentor comment with valid forum id and special char caption
     Given User set forum id to 1 and comment "!@$$%@%#$"
     When User send request post add comment
     Then Should return 201 Created
-
-  @negative
+  @positive
 #      BUG
   Scenario: Add mentor comment with valid forum id and empty data
     Given User set forum id to 1

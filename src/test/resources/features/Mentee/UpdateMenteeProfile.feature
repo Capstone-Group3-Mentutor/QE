@@ -3,55 +3,55 @@ Feature: Update Mentee Profile
     Given Mentee login with all valid data
     When User send request post login user
     And Set token to base Mentor Token
-
+  @positive
   Scenario: Update profile Mentee with all valid data
     Given Mentee set update profile data with Name "Base Mentee", Email "setmentee@gmail.com", Password "Admin123$", images "testImageValid.PNG"
     When User send request put update data
     Then Should return 201 Created
     And Reset mentee profile
-
+  @negative
   Scenario: Update name Mentee with Numeric
     Given Mentee set update profile data with Numeric name "123 12"
     When User send request put update data
     Then Should return 400 Bad Request
     And Reset mentee profile
-
+  @negative
   Scenario: Update name Mentee with Special char
     Given Mentee set update profile data with Numeric name "!$% %%"
     When User send request put update data
     Then Should return 400 Bad Request
     And Reset mentee profile
-
+  @negative
   Scenario: Update name Mentee with more than maximum char
     Given Mentee set update profile data with Numeric name "Jangan cobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusing"
     When User send request put update data
     Then Should return 400 Bad Request
     And Reset mentee profile
-
+  @negative
   Scenario: Update email Mentee with full numeric email address
     Given Mentee set update profile data with email "214124"
     When User send request put update data
     Then Should return 400 Bad Request
     And Reset mentee profile
-
+  @negative
   Scenario: Update email Mentee with space email address
     Given Mentee set update profile data with email "jo ni@gmail.com"
     When User send request put update data
     Then Should return 400 Bad Request
     And Reset mentee profile
-
+  @positive
   Scenario:  Update email Mentee with capital email address
     Given Mentee set update profile data with email "SETMENTEE@gmail.com"
     When User send request put update data
     Then Should return 201 Created
     And Reset mentee profile
-
+  @negative
   Scenario:  Update email Mentee with more than max char email name
     Given Mentee set update profile data with email "jangancobadibacantarmalahpusingsendirikanjadikasihandirilumendingdiskipajadehtakutnyamalahjadipusing@gmail.com"
     When User send request put update data
     Then Should return 400 Bad Request
     And Reset mentee profile
-
+  @negative
   Scenario:  Update password Mentee with numeric only
     Given Mentee set update profile data with password "24561233"
     When User send request put update data
@@ -112,10 +112,5 @@ Feature: Update Mentee Profile
     When User send request put update data
     Then Should return 201 Created
     And Reset mentee profile
-
-#  Scenario: Update profile Mentee with Admin token
-#    Given Mentee set update profile data with Admin token
-#    When User send request put update data
-#    Then Should return 201 Created
 
 

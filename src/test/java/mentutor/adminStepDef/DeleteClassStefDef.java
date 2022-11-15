@@ -57,7 +57,6 @@ public class DeleteClassStefDef {
     @Given("Delete class invalid Id {string}")
     public void deleteClassInvalidId(String id) {
         adminAPI.deleteClassInvalidID("id");
-
     }
 
     //DeleteClass_005

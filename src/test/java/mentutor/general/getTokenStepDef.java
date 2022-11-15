@@ -12,13 +12,7 @@ import java.io.File;
 public class getTokenStepDef {
     @Steps
     SetBaseLogin LoginAPI;
-    mentorAPI MentorAPI;
     menteeAPI MenteeAPI;
-//    @Given("User set update profile data")
-//    public void userSetUpdateProfileData() {
-//        File json = new File(LoginAPI.JSON_FILE+"/PutUpdateProfileMentorWithValidData.json");
-//        LoginAPI.setUpdateUserProfile(json);
-//    }
     @And("Set token to base Mentor Token")
     public void setTokenToMentorToken() {
         SerenityRest.when().post(LoginAPI.LOGIN_USER);

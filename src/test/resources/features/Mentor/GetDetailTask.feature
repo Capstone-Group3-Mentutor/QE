@@ -19,8 +19,6 @@ Feature: Get Detail Task by Mentor
     Given Mentor set task id to 999999999
     When User send request get detail task
     Then Should return 404 Not Found
-#  Scenario: Get detail task with valid task id with Mentee Token
-#  Scenario: Get detail task with valid task id with Admin Token
   @negative
   Scenario: Get detail task with valid task id without Token
     Given Mentor set task id to 11 without token

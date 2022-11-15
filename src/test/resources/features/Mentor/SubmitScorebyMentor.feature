@@ -54,12 +54,3 @@ Feature: Submit score
     Given Mentor set task id to 11, submission id to 34, and score 90 without token
     When User send request post submit score
     Then Should return 400 Bad Request
-#  @positive @negative
-##    BUG
-#  Scenario: Add task score with Mentee Token
-#    Given Mentor set task id to 85, submission id to 15, and score 90
-#    When User send request post submit score
-#    Then Should return 201 Created
-#  @positive @negative
-##    BUG
-#  Scenario: Add task score with Admin Token

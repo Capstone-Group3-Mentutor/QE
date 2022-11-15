@@ -72,6 +72,3 @@ Feature: Login All users
     Examples:
       |email|passowrd|
       |     |        |
-  #    And Response body should contain id user 1, name "Admin", email "admin.mentutor@gmail.com", class "" and role "admin"
-#    And Response body massage error is "user not found"
-#    And Response body massage error is "Invalid Input From Client"

@@ -10,7 +10,6 @@ import net.thucydides.core.annotations.Steps;
 public class submitTaskStepDef {
     @Steps
     SetBaseLogin LoginAPI;
-    menteeAPI MenteeAPI;
     @Given("User set task id to {int} and file {string}")
     public void userSetTaskIdToAndFile(int task, String file) {
         LoginAPI.setSubmitTask(task,file);

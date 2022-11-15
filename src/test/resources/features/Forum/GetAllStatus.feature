@@ -4,13 +4,13 @@ Feature: Get All Status
     When Send request post login as a mentee
     And Set token as a mentee token
 
-    @Tamara #GetAllStatus_001
+    @Tamara @positive #GetAllStatus_001
   Scenario: Get All Status with Authorization
       Given Get all status using valid path with authorization
       When send request get all status
       Then Should return status code 200 OK
 
-    @Tamara #GetAllStatus_002
+    @Tamara @negative #GetAllStatus_002
   Scenario: Get All Status without Authorization
     Given Get all status using valid path without authorization
     When send request get all status

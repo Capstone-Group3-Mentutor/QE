@@ -28,5 +28,3 @@ Feature: Delete Task
     Given Mentor set task id to 43 without token
     When User send request delete task
     Then Should return 400 Bad Request
-#  Scenario: Delete task with Mentee Token
-#  Scenario: Delete task with Admin Token

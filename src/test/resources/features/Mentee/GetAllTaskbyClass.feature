@@ -10,5 +10,3 @@ Feature: Get All Task by Class
   Scenario: Get all task by class without Token
     When User send request get all task
     Then Should return 400 Bad Request
-#  Scenario: Get all task when class is deleted
-#  Scenario: Get all task by class with Admin Token

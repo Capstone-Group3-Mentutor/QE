@@ -131,18 +131,3 @@ Feature: Update Task
     Examples:
       | id  | Title          | Description   | Images            | File              | Time        |
       | 9  | percobaan aja  | matematika    | testImageValid.PNG| testFileValid.pdf | 2022-11-05  |
-
-#  Scenario Outline: Update task with Mentee Token
-#    Given Mentor set update task data with Id <id>, Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
-#    When User send request put update task
-#    Then Should return 201 Created
-#    Examples:
-#      | id     | Title          | Description   | Images            | File              | Time        |
-#      | 999999 | percobaan aja  | matematika    | testImageValid.PNG| testFileValid.pdf | 2022-11-05  |
-#  Scenario Outline: Update task with Admin Token
-#    Given Mentor set update task data with Id <id>, Title "<Title>", Description "<Description>",Images "<Images>",File "<File>", Time "<Time>"
-#    When User send request put update task
-#    Then Should return 201 Created
-#    Examples:
-#      | id     | Title          | Description   | Images            | File              | Time        |
-#      | 999999 | percobaan aja  | matematika    | testImageValid.PNG| testFileValid.pdf | 2022-11-05  |

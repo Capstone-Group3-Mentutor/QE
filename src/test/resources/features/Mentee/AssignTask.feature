@@ -28,9 +28,4 @@ Feature: AssignTask
     Given User set task id to 65 and file "testFileValid.pdf" without token
     When User send request post submit task
     Then Should return 400 Bad Request
-#  Scenario: Assign task with Mentor Token
-#  Scenario: Assign task with Admin Token
-#  Scenario: Assign  task with already submitted task id
-#    Given User set task id to 3 and file "testFileValid.pdf"
-#    When User send request post submit task
-#    Then Should return 400 Bad Request
+

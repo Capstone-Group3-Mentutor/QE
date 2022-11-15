@@ -43,6 +43,5 @@ public class DeleteUserStepDef {
     @Given("Delete user with Id {int} has been deleted")
     public void deleteUserWithIdIdHasBeenDeleted(int id) {
         adminAPI.deleteUserHasBeenDeletedID(id);
-
     }
 }

@@ -9,7 +9,6 @@ import net.thucydides.core.annotations.Steps;
 public class ScoreStepDef {
     @Steps
     SetBaseLogin LoginAPI;
-
     @When("User send request post submit score")
     public void userSendRequestPostSubmitScore() {
         SerenityRest.when().post(mentorAPI.SUBMIT_SCORE);
@@ -32,12 +31,10 @@ public class ScoreStepDef {
     public void mentorSetTaskIdToSubmissionIdToAndScore(int task, int sub, String score) {
         LoginAPI.setSubmitStringScore(task,sub,score);
     }
-
     @Given("Mentor set task id to {int}, submission id to {int}, and decimal score {float}")
     public void mentorSetTaskIdToSubmissionIdToAndScore(int task, int sub, float score) {
         LoginAPI.setSubmitFloatScore(task,sub,score);
     }
-
     @Given("Mentor set task id to {int}, submission id to {int}")
     public void mentorSetTaskIdToSubmissionIdTo(int task, int sub) {
         LoginAPI.setSubmitEmptyScore(task,sub);

@@ -4,7 +4,7 @@ Feature: Get Single User
     When Send request post login user
     And Set token to Admin Token
 
-  @Tamara #GetSingleUser_001
+  @Tamara @positive #GetSingleUser_001
   Scenario Outline: Get Single User with Valid Id User
     Given Get single user using valid id <id> with authorization
     When Send request get single user
@@ -14,7 +14,7 @@ Feature: Get Single User
     |id|
     |1005 |
 
-  @Tamara #GetSingleUser_002
+  @Tamara @negative #GetSingleUser_002
   Scenario Outline: Get Single User Using Valid Id User without Authorization
     Given Get single user using valid id <id> without authorization
     When Send request get single user
@@ -24,7 +24,7 @@ Feature: Get Single User
       |id|
       |1005 |
 
-  @Tamara #GetSingleUser_003
+  @Tamara @negative #GetSingleUser_003
   Scenario Outline: Get Single User with Unregistered Id User
     Given Get single user with unregistered id <id>
     When Send request get single user
@@ -34,7 +34,7 @@ Feature: Get Single User
       |id|
       |500 |
 
-  @Tamara #GetSingleUser_004
+  @Tamara @negative #GetSingleUser_004
   Scenario Outline: Get Single User with Invalid Id User
     Given Get single user with invalid id "<id>"
     When Send request get single user
@@ -45,7 +45,7 @@ Feature: Get Single User
       |@!$@ |
       |one  |
 
-  @Tamara #GetSingleUser_005
+  @Tamara @negative #GetSingleUser_005
   Scenario Outline: Get Single User with Id User has been Deleted
     Given Get single user with id <id> has been deleted
     When Send request get single user

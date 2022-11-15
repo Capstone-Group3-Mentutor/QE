@@ -20,7 +20,7 @@ public class AdminAPI {
     public static final String UPDATE_CLASS = "https://ecommerce-alta.online/admin/classes/{id}";
     public static final String UPDATE_USERS = "https://ecommerce-alta.online/admin/users/{id}";
     public static final String DIR = System.getProperty("user.dir");
-    public static final String JSON_FILE = DIR+"/src/test/resources/JSON";
+    public static final String JSON_FILE = DIR+"/src/test/resources/JSON/Admin/";
     public static final String UPLOAD = "src/test/resources/JSON/BodyRequest/" ;
 
 

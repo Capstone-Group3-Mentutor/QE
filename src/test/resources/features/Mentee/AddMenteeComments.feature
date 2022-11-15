@@ -21,10 +21,7 @@ Feature: Add Mentee Comment
     Given User set forum id to 9999999 and comment "saya sih yes"
     When User send request post add comment
     Then Should return 404 Not Found
-#  Scenario: Add Mentee comment without forum id and valid caption
-#    Given User set comment "saya sih yes"
-#    When User send request post add comment
-#    Then Should return 404 Not Found
+
   Scenario: Add Mentee comment with valid forum id and int caption
     Given User set forum id to 1 and comment 2141512
     When User send request post add comment
