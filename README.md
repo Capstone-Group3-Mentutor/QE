@@ -13,7 +13,7 @@
 </div>
 
 
-Mentutor hadir sebagai wadah untuk pengajar bisa memonitoring peserta didiknya baik dari pengumpulan tugas maupun dengan cara berdiskusi dengan peserta didik melalui forum yang disediakan. 
+Mentutor are present as a forum for teachers to monitor their students both from collection and by practicing with students through the provided forum.
 
 
 
@@ -30,7 +30,6 @@ Mentutor hadir sebagai wadah untuk pengajar bisa memonitoring peserta didiknya b
 ![IntellijIDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
-![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
 ![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white)
 
 **Framework for automation:**  
