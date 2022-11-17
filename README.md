@@ -12,13 +12,15 @@
 <img src="LogoMentutor.png" alt="Logo" width="450" height="auto" />
 </div>
 
+## 📃About The Project
+
+### Application Under Test | Mentutor
 
 Mentutor are present as a forum for teachers to monitor their students both from collection and by practicing with students through the provided forum.
 
+### Testing Approach
 
-
-
-
+Behaviour Driven Development testing which focused on feature testing on Business flow. We also uer ***Data Driven*** for repetitive test but different parameter for simple code
 
 
 ## 🛠 Tools
@@ -44,6 +46,56 @@ Mentutor are present as a forum for teachers to monitor their students both from
 **Communication:**  
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/orgs/Capstone-Group3-Mentutor/projects/1/views/1)
 ![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?style=for-the-badge&logo=discord&logoColor=white)
+
+
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+- Java 1.8
+- Maven
+- Gherkin for Java
+- Cucumber
+
+### Installation
+
+   ```sh
+   git clone https://github.com/Capstone-Group3-Mentutor/QE-API.git
+   ```
+
+### Usage
+
+   ```sh
+   mvn clean verify
+   ```
+
+<br/>
+
+## 💫 Tested Feature Coverage
+
+### 🔐 Authorization
+
+- Login
+
+### 🔄 CRUD Data Flow
+
+- User Management
+- Class Management
+- Task Management
+- Score Submission
+- Forum feature
+- Comment feature
+- Profile Authentication and Data Modification
+- Class Modification
+
+### 🗹 Input Field Validation
+- DataType validation
+- CharCount validation
+- FileType validation
+
 
 ## 📓 Documentation
 #### 👨‍🚀   [Postman Colection](https://www.postman.com/interstellar-space-651335/workspace/team-workspace)
